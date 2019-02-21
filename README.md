@@ -1,5 +1,5 @@
 # my docs
-## https://wiki.handbye.cn
+## https://wiki.darkless.cn
 
 # my blog
 ## https://darkless.cn
