@@ -81,10 +81,8 @@ markdown_extensions:
 
 # Page tree
 nav:
-  - linux笔记:
-    - Admonition: index.md
   - DVWA解题:
-    - 暴力破解: 1.md
+    - 暴力破解: DVWA暴力破解.md
 
 # Google Analytics
 google_analytics:
