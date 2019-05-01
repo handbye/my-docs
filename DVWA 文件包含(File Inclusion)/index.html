@@ -13,7 +13,7 @@
         <meta name="description" content="drkless docs">
       
       
-        <link rel="canonical" href="https://darkless.cn/my-docs/DVWA CSRF/">
+        <link rel="canonical" href="https://darkless.cn/my-docs/DVWA 文件包含(File Inclusion)/">
       
       
         <meta name="author" content="hand">
@@ -42,7 +42,7 @@
     
     
       
-        <title>CSRF - DarkLess</title>
+        <title>File Inclusion - DarkLess</title>
       
     
     
@@ -110,7 +110,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#csrf" tabindex="1" class="md-skip">
+      <a href="#_1" tabindex="1" class="md-skip">
         跳转至
       </a>
     
@@ -135,7 +135,7 @@
               DarkLess
             </span>
             <span class="md-header-nav__topic">
-              CSRF
+              File Inclusion
             </span>
           
         </div>
@@ -293,6 +293,18 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="../DVWA CSRF/" title="CSRF" class="md-nav__link">
+      CSRF
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
@@ -302,11 +314,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        CSRF
+        File Inclusion
       </label>
     
-    <a href="./" title="CSRF" class="md-nav__link md-nav__link--active">
-      CSRF
+    <a href="./" title="File Inclusion" class="md-nav__link md-nav__link--active">
+      File Inclusion
     </a>
     
       
@@ -318,8 +330,42 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#csrf" title="什么是CSRF" class="md-nav__link">
-    什么是CSRF
+  <a href="#_1" title="文件包含简介" class="md-nav__link">
+    文件包含简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="漏洞产生原因" class="md-nav__link">
+    漏洞产生原因
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="本地文件包含" class="md-nav__link">
+    本地文件包含
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="常见的敏感信息路径" class="md-nav__link">
+    常见的敏感信息路径
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="远程文件包含" class="md-nav__link">
+    远程文件包含
   </a>
   
 </li>
@@ -352,6 +398,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_6" title="参考文章：" class="md-nav__link">
+    参考文章：
+  </a>
+  
+</li>
+      
       
       
       
@@ -360,18 +413,6 @@
   
 </nav>
     
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../DVWA 文件包含(File Inclusion)/" title="File Inclusion" class="md-nav__link">
-      File Inclusion
-    </a>
   </li>
 
         
@@ -411,8 +452,42 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#csrf" title="什么是CSRF" class="md-nav__link">
-    什么是CSRF
+  <a href="#_1" title="文件包含简介" class="md-nav__link">
+    文件包含简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="漏洞产生原因" class="md-nav__link">
+    漏洞产生原因
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="本地文件包含" class="md-nav__link">
+    本地文件包含
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="常见的敏感信息路径" class="md-nav__link">
+    常见的敏感信息路径
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="远程文件包含" class="md-nav__link">
+    远程文件包含
   </a>
   
 </li>
@@ -445,6 +520,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_6" title="参考文章：" class="md-nav__link">
+    参考文章：
+  </a>
+  
+</li>
+      
       
       
       
@@ -462,110 +544,142 @@
               
                 
                 
-                  <h1>CSRF</h1>
+                  <h1>File Inclusion</h1>
                 
-                <h2 id="csrf">什么是CSRF</h2>
-<p>CSRF（Cross Site Request Forgery），中文是跨站点请求伪造。CSRF攻击者在用户已经登录目标网站之后，诱使用户访问一个攻击页面，利用目标网站对用户的信任，以用户身份在攻击页面对目标网站发起伪造用户操作的请求，达到攻击目的。</p>
-<p>CSRF的原理图：</p>
-<p><img alt="20190427104355.png" src="https://raw.githubusercontent.com/handbye/images/master/20190427104355.png" /></p>
-<p>图片来自https://www.cnblogs.com/wangyuyu/p/3388169.html</p>
-<p>可以看到CSRF是利用了受害者已登录的A网站cooike未失效的情况下诱导用户访问B网站，而访问B网站时会携带A网站的cookie，这样就导致了使用A网站用户的权限处理了B网站的恶意请求。</p>
-<h2 id="low">LOW等级</h2>
-<p>正常去修改密码，查看浏览器的请求。</p>
-<p><img alt="20190427105244.png" src="https://raw.githubusercontent.com/handbye/images/master/20190427105244.png" /></p>
-<p>发现再request请求中，浏览器想服务器发送了get请求，只要get请求中包含新密码和确认密码两个字段就可修改密码，那是否可以自己构造get请求来修改密码呢，进行尝试：</p>
-<p><img alt="20190427105650.png" src="https://raw.githubusercontent.com/handbye/images/master/20190427105650.png" /></p>
-<p>尝试后发现密码修改成功。</p>
-<p>当然再实际场景下，我们不可能以这种方式去修改别人的密码，但是我们必须知道修改密码的原理。</p>
-<p>这时候我们就需要利用CSRF漏洞了，可以伪造一个URL发送给受害者，他一旦点击密码就会修改。用<code>http:/1.1.1.1/dvwa/vulnerabilities/csrf/?password_new=admin1234&amp;password_conf=admin1234&amp;Change=Change</code>这样的链接显然不合适，可以利用短链接生成器或者直接伪造HTML页面发送。</p>
-<blockquote>
-<p>1.1.1.1是一个可以访问的公网地址，这里我就随便写了个</p>
-</blockquote>
-<p>这里我使用短链接生成网站<a href="http://url.tool.cc/">http://url.tool.cc/</a>来生成一个短连接<code>http://t.cn/EasESOu</code></p>
-<p>再浏览器里点击这个短连接，密码即可修改，这就是CSRF最简单的一个利用。</p>
-<h2 id="medium">Medium等级</h2>
-<p>尝试用Low等级的方法，发现无效，页面弹出错误信息：</p>
-<p><img alt="20190427112634.png" src="https://raw.githubusercontent.com/handbye/images/master/20190427112634.png" /></p>
-<p>这时候就得去思考为什么会出现这种错误，在这之前我们应该先了解下CSRF的防护，CSRF的防护可以有这几种：</p>
+                <h2 id="_1">文件包含简介</h2>
+<p>服务器执行PHP文件时，可以通过文件包含函数加载另一个文件中的PHP代码，并且当PHP来执行，这会为开发者节省大量的时间。这意味着您可以创建供所有网页引用的标准页眉或菜单文件。当页眉需要更新时，您只更新一个包含文件就可以了，或者当您向网站添加一张新页面时，仅仅需要修改一下菜单文件（而不是更新所有网页中的链接）。</p>
+<p>在PHP中文件包含函数有以下四种：</p>
 <ul>
-<li>尽量使用POST，限制GET</li>
-</ul>
-<p>GET接口太容易被拿来做CSRF攻击，看第一个示例就知道，只要构造一个img标签，而img标签又是不能过滤的数据。接口最好限制为POST使用，GET则无效，降低攻击风险。</p>
-<p>当然POST并不是万无一失，攻击者只要构造一个form就可以，但需要在第三方页面做，这样就增加暴露的可能性。</p>
-<ul>
-<li>浏览器Cookie策略</li>
-</ul>
-<p>IE6、7、8、Safari会默认拦截第三方本地Cookie（Third-party Cookie）的发送。但是Firefox2、3、Opera、Chrome、Android等不会拦截，所以通过浏览器Cookie策略来防御CSRF攻击不靠谱，只能说是降低了风险。</p>
-<p>PS：Cookie分为两种，Session Cookie（在浏览器关闭后，就会失效，保存到内存里），Third-party Cookie（即只有到了Exprie时间后才会失效的Cookie，这种Cookie会保存到本地）。</p>
-<p>PS：另外如果网站返回HTTP头包含P3P Header，那么将允许浏览器发送第三方Cookie。</p>
-<ul>
-<li>加验证码</li>
-</ul>
-<p>验证码，强制用户必须与应用进行交互，才能完成最终请求。在通常情况下，验证码能很好遏制CSRF攻击。但是出于用户体验考虑，网站不能给所有的操作都加上验证码。因此验证码只能作为一种辅助手段，不能作为主要解决方案。</p>
-<ul>
-<li>Referer Check</li>
-</ul>
-<p>Referer Check在Web最常见的应用就是“防止图片盗链”。同理，Referer Check也可以被用于检查请求是否来自合法的“源”（Referer值是否是指定页面，或者网站的域），如果都不是，那么就极可能是CSRF攻击。</p>
-<p>但是因为服务器并不是什么时候都能取到Referer，所以也无法作为CSRF防御的主要手段。但是用Referer Check来监控CSRF攻击的发生，倒是一种可行的方法。</p>
-<ul>
-<li>Anti CSRF Token</li>
-</ul>
-<p>现在业界对CSRF的防御，一致的做法是使用一个Token（Anti CSRF Token）。</p>
-<p>例子：</p>
-<ol>
 <li>
-<p>用户访问某个表单页面。</p>
+<p>require()</p>
 </li>
 <li>
-<p>服务端生成一个Token，放在用户的Session中，或者浏览器的Cookie中。</p>
+<p>require_once()</p>
 </li>
 <li>
-<p>在页面表单附带上Token参数。</p>
+<p>include()</p>
 </li>
 <li>
-<p>用户提交请求后， 服务端验证表单中的Token是否与用户Session（或Cookies）中的Token一致，一致为合法请求，不是则非法请求。</p>
+<p>include_once()</p>
 </li>
-</ol>
-<p>这个Token的值必须是随机的，不可预测的。由于Token的存在，攻击者无法再构造一个带有合法Token的请求实施CSRF攻击。另外使用Token时应注意Token的保密性，尽量把敏感操作由GET改为POST，以form或AJAX形式提交，避免Token泄露。</p>
-<p>注意：</p>
-<p>CSRF的Token仅仅用于对抗CSRF攻击。当网站同时存在XSS漏洞时候，那这个方案也是空谈。所以XSS带来的问题，应该使用XSS的防御方案予以解决。</p>
-<p>经过不断尝试后，发现High等级是用了检查Refer来预防CSRF，那我们是否可以构造和目标网站相同的Refer来进行攻击呢？</p>
-<blockquote>
-<p>不了解http头中Refer作用的可以先去百度下</p>
-</blockquote>
-<p>我这里是写了一个html网页并将其放在了服务器的一个名为<code>127.0.0.1</code>的目录下，这样访问的时候Refer字段中就会存在127.0.0.1，从而骗过了后端代码的验证。</p>
-<p>html代码如下：</p>
-<pre><code class="html">&lt;p&gt;美女图片，点击下方按钮查看&lt;/p&gt;
+</ul>
+<p>include和require区别主要是，include在包含的过程中如果出现错误，会抛出一个警告，程序继续正常运行；而require函数出现错误的时候，会直接报错并退出程序的执行。</p>
+<p>而include_once()，require_once()这两个函数，与前两个的不同之处在于这两个函数只包含一次，适用于在脚本执行期间同一个文件有可能被包括超过一次的情况下，你想确保它只被包括一次以避免函数重定义，变量重新赋值等问题。</p>
+<h2 id="_2">漏洞产生原因</h2>
+<p>件包含函数加载的参数没有经过过滤或者严格的定义，可以被用户控制，包含其他恶意文件，导致了执行了非预期的代码。</p>
+<p>示例代码</p>
+<pre><code class="php">
+&lt;?php
 
-&lt;form  method=&quot;get&quot;  action=&quot;http://127.0.0.1/dvwa/vulnerabilities/csrf/&quot;&gt;
+$filename  =  $_GET['filename'];
 
-&lt;input  type=&quot;hidden&quot;  name=&quot;password_new&quot;  value=&quot;admin&quot;&gt;
+include($filename);
 
-&lt;input  type=&quot;hidden&quot;  name=&quot;password_conf&quot;  value=&quot;admin&quot;&gt;
-
-&lt;input  type=&quot;hidden&quot;  name=&quot;Change&quot;  value=&quot;Change&quot;&gt;
-
-&lt;input  type=&quot;submit&quot;  name=&quot;&quot;  value=&quot;查看&quot;&gt;
-
-&lt;/form&gt;
+?&gt;
 </code></pre>
 
-<p>验证是否可以修改密码，将此链接发给受害者，诱导他点击。</p>
-<p>抓包看到，Refer中已经包含了<code>127.0.0.1</code></p>
-<p><img alt="20190427132728.png" src="https://raw.githubusercontent.com/handbye/images/master/20190427132728.png" /></p>
-<p>密码也成功修改：</p>
-<p><img alt="20190427132759.png" src="https://raw.githubusercontent.com/handbye/images/master/20190427132759.png" /></p>
-<p>可以看到Medium等级的CSRF只要请求头中的Refer包含了Host就可以攻击成功，查看源码也是如此：</p>
-<p><img alt="20190427132943.png" src="https://raw.githubusercontent.com/handbye/images/master/20190427132943.png" /></p>
+<p><code>$_GET['filename']</code>参数开发者没有经过严格的过滤，直接带入了include的函数，攻击者可以修改<code>$_GET['filename']</code>的值，执行非预期的操作。</p>
+<h2 id="_3">本地文件包含</h2>
+<p>本地文件包含指的是可以执行windows或者linux下的敏感文件，这些文件一般不是PHP，执行这些文件可以直接显示出文件中的内容</p>
+<h3 id="_4">常见的敏感信息路径</h3>
+<p>windows系统：</p>
+<pre><code class="text">
+c:\boot.ini // 查看系统版本
+
+
+
+c:\windows\system32\inetsrv\MetaBase.xml // IIS配置文件
+
+
+
+c:\windows\repair\sam // 存储Windows系统初次安装的密码
+
+
+
+c:\ProgramFiles\mysql\my.ini // MySQL配置
+
+
+
+c:\ProgramFiles\mysql\data\mysql\user.MYD // MySQL root密码
+
+
+
+c:\windows\php.ini // php 配置信息
+</code></pre>
+
+<p>linux系统：</p>
+<pre><code class="text">
+/etc/passwd // 账户信息
+
+
+
+/etc/shadow // 账户密码文件
+
+
+
+/usr/local/app/apache2/conf/httpd.conf // Apache2默认配置文件
+
+
+
+/usr/local/app/apache2/conf/extra/httpd-vhost.conf // 虚拟网站配置
+
+
+
+/usr/local/app/php5/lib/php.ini // PHP相关配置
+
+
+
+/etc/httpd/conf/httpd.conf // Apache配置文件
+
+
+
+/etc/my.conf // mysql 配置文件
+</code></pre>
+
+<h2 id="_5">远程文件包含</h2>
+<p>PHP的配置文件<code>allow_url_fopen</code>和<code>allow_url_include</code>设置为ON，<code>include/require</code>等包含函数可以加载远程文件，如果远程文件没经过严格的过滤，导致了执行恶意文件的代码，这就是远程文件包含漏洞。</p>
+<blockquote>
+<p>allow_url_fopen = On（是否允许打开远程文件）</p>
+<p>allow_url_include = On（是否允许include/require远程文件）</p>
+</blockquote>
+<h2 id="low">LOW等级</h2>
+<p>先测试下LOW等级是否有本地文件包含漏洞：</p>
+<p>点击页面上的<code>file1.php</code>查看链接为：<code>http://127.0.0.1/dvwa/vulnerabilities/fi/?page=file1.php</code></p>
+<p>尝试随便将链接更改一个不存在的文件，显示如下，将服务器的绝对路径也爆了出来。</p>
+<p><img alt="20190427225212.png" src="https://raw.githubusercontent.com/handbye/images/master/20190427225212.png" /></p>
+<p>在服务器根目录下存在一个phpinfo文件，经过测试可以包含此文件：</p>
+<p><img alt="20190427225941.png" src="https://raw.githubusercontent.com/handbye/images/master/20190427225941.png" /></p>
+<p>当然一般情况下很难爆出绝对路径，要靠去不断的猜测，当有本地文件包含漏洞时，可以和文件上传漏洞配合使用，上传一个大马getshell。</p>
+<p>接下来测试是否可以远程包含：</p>
+<p><img alt="20190427233614.png" src="https://raw.githubusercontent.com/handbye/images/master/20190427233614.png" /></p>
+<p>发现也可以远程包含，那这样就不用去上传文件执行了，我们写个木马放到远程服务器直接执行就可以了。</p>
+<h2 id="medium">Medium等级</h2>
+<p>同样和Low等级一样测试能否本地包含和远程包含。</p>
+<p><img alt="20190427232516.png" src="https://raw.githubusercontent.com/handbye/images/master/20190427232516.png" /></p>
+<p>可以本地包含。</p>
+<p><img alt="20190427233815.png" src="https://raw.githubusercontent.com/handbye/images/master/20190427233815.png" /></p>
+<p>远程包含报错，猜测可能是服务器代码对包含的参数加了过滤，仔细分析报错可发现手工加的远程文件链接中的<code>http://</code>不见了，猜测可能是对<code>http://</code>加了过滤。</p>
+<p>重新构造链接，查看能否被包含：</p>
+<p><img alt="20190427234418.png" src="https://raw.githubusercontent.com/handbye/images/master/20190427234418.png" /></p>
+<p>文件执行成功。</p>
+<p>查看源码果然是对http://和https://进行了过滤，所以我们要善于观察。</p>
+<p><img alt="20190427234559.png" src="https://raw.githubusercontent.com/handbye/images/master/20190427234559.png" /></p>
 <h2 id="high">High等级</h2>
-<p>使用前面的方法去尝试，发现都不可用，提示<code>CSRF token is incorrect</code></p>
-<p><img alt="20190427133209.png" src="https://raw.githubusercontent.com/handbye/images/master/20190427133209.png" /></p>
-<p>抓包可发现，此次修改密码时需要添加token字段：</p>
-<p><img alt="20190427133416.png" src="https://raw.githubusercontent.com/handbye/images/master/20190427133416.png" /></p>
-<p>token字段是不断变化的，不知道此字段的情况下是无法修改密码的，High等级的CSRF攻击需要配合后面的XSS漏洞一起，这里就先不做介绍，等XSS漏洞时一起介绍。</p>
+<p>High等级下，使用前面的办法都无法执行。</p>
+<p><img alt="20190427234834.png" src="https://raw.githubusercontent.com/handbye/images/master/20190427234834.png" /></p>
+<p>直接提示<code>ERROR: File not found!</code></p>
+<p>那为什么执行file1.php,file2.php,file3.php可以正常执行呢？</p>
+<p>我们执行file10.php,发现报错信息和之前不一样了，猜测可能是只有file开头的文件才可以执行。</p>
+<p><img alt="20190427235213.png" src="https://raw.githubusercontent.com/handbye/images/master/20190427235213.png" /></p>
+<p>此时就无法使用远程文件包含了，而file开头的正是一种文件访问的格式，可以利用这一点去访问本地文件，但前提要知道此文件的绝对路径，这就必须配合后面的文件上传漏洞一起利用了。</p>
+<p>查看源代码，发现也是如此：</p>
+<p><img alt="20190427235519.png" src="https://raw.githubusercontent.com/handbye/images/master/20190427235519.png" /></p>
 <h2 id="impossible">Impossible等级</h2>
-<p>Impossible等级修改密码时需要先输入当前密码。这一措施使得CSRF攻击无法进行。</p>
-<p><img alt="20190427134058.png" src="https://raw.githubusercontent.com/handbye/images/master/20190427134058.png" /></p>
+<p>Impossible等价下对访问的文件做了白名单，其余任意文件都无法访问，这就有效避免了文件包含漏洞的产生。</p>
+<p>代码如下：</p>
+<p><img alt="20190427235725.png" src="https://raw.githubusercontent.com/handbye/images/master/20190427235725.png" /></p>
+<h2 id="_6">参考文章：</h2>
+<p><a href="https://www.freebuf.com/articles/web/182280.html">https://www.freebuf.com/articles/web/182280.html</a></p>
                 
                   
                 
@@ -586,7 +700,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../DVWA命令注入(Command Injection)/" title="Command Injection" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../DVWA CSRF/" title="CSRF" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -595,19 +709,19 @@
                 <span class="md-footer-nav__direction">
                   后退
                 </span>
-                Command Injection
+                CSRF
               </span>
             </div>
           </a>
         
         
-          <a href="../DVWA 文件包含(File Inclusion)/" title="File Inclusion" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../DVWA 文件上传(File Upload)/" title="File Upload" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   前进
                 </span>
-                File Inclusion
+                File Upload
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
