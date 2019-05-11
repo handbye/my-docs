@@ -13,7 +13,7 @@
         <meta name="description" content="drkless docs">
       
       
-        <link rel="canonical" href="https://darkless.cn/my-docs/DVWA 不安全的session ID（Weak Session IDs）/">
+        <link rel="canonical" href="https://darkless.cn/my-docs/DVWA DOM型XSS(XSS-DOM)/">
       
       
         <meta name="author" content="hand">
@@ -42,7 +42,7 @@
     
     
       
-        <title>Weak Session ID - DarkLess</title>
+        <title>XSS-DOM - DarkLess</title>
       
     
     
@@ -110,7 +110,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#session-id" tabindex="1" class="md-skip">
+      <a href="#xss" tabindex="1" class="md-skip">
         跳转至
       </a>
     
@@ -135,7 +135,7 @@
               DarkLess
             </span>
             <span class="md-header-nav__topic">
-              Weak Session ID
+              XSS-DOM
             </span>
           
         </div>
@@ -353,6 +353,18 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="../DVWA 不安全的session ID（Weak Session IDs）/" title="Weak Session ID" class="md-nav__link">
+      Weak Session ID
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
@@ -362,11 +374,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Weak Session ID
+        XSS-DOM
       </label>
     
-    <a href="./" title="Weak Session ID" class="md-nav__link md-nav__link--active">
-      Weak Session ID
+    <a href="./" title="XSS-DOM" class="md-nav__link md-nav__link--active">
+      XSS-DOM
     </a>
     
       
@@ -378,8 +390,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#session-id" title="session ID简介" class="md-nav__link">
-    session ID简介
+  <a href="#xss" title="XSS 简介" class="md-nav__link">
+    XSS 简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#domxss" title="DOM型XSS" class="md-nav__link">
+    DOM型XSS
   </a>
   
 </li>
@@ -423,18 +442,6 @@
   </li>
 
         
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../DVWA DOM型XSS(XSS-DOM)/" title="XSS-DOM" class="md-nav__link">
-      XSS-DOM
-    </a>
-  </li>
-
-        
       </ul>
     </nav>
   </li>
@@ -459,8 +466,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#session-id" title="session ID简介" class="md-nav__link">
-    session ID简介
+  <a href="#xss" title="XSS 简介" class="md-nav__link">
+    XSS 简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#domxss" title="DOM型XSS" class="md-nav__link">
+    DOM型XSS
   </a>
   
 </li>
@@ -510,67 +524,117 @@
               
                 
                 
-                  <h1>Weak Session ID</h1>
+                  <h1>XSS-DOM</h1>
                 
-                <h2 id="session-id">session ID简介</h2>
-<p>由于HTTP协议是无连接的协议，也就是说当客户端访问通过HTTP协议访问服务器时，服务器是无法知道访问我的到底是哪一个客户端。这种情况会导致一系列的问题，比如无法判断是哪个用户登录或者无法面向用户提供差异化服务。于是session ID上场了，用户访问服务器的时候，一般服务器都会分配一个身份证 session id 给用户，用于标识。一个Session ID就对应一个客户端，用户拿到session id 后就会保存到 cookies 上，之后只要拿着 cookies 再访问服务器，服务器就知道你是谁了。</p>
-<p>但是 session id 过于简单就会容易被人伪造，根本都不需要知道用户的密码就能登录服务器了。</p>
+                <h2 id="xss">XSS 简介</h2>
+<p>XSS(Cross Site Scripting) 跨站脚本攻击，CSS的重点不在跨站上，而在脚本上。大多数的XSS攻击是在目标网站上嵌入一段恶意的JS代码来完成特性的攻击，如获取用户登陆信息，获取键盘输入，网页截屏等操作。</p>
+<p>XSS的危害：</p>
+<ul>
+<li>
+<p>通过document.cookie盗取cookie</p>
+</li>
+<li>
+<p>使用js或css破坏页面正常的结构与样式</p>
+</li>
+<li>
+<p>流量劫持（通过访问某段具有window.location.href定位到其他页面）</p>
+</li>
+<li>
+<p>Dos攻击：利用合理的客户端请求来占用过多的服务器资源，从而使合法用户无法得到服务器响应。</p>
+</li>
+<li>
+<p>利用iframe、frame、XMLHttpRequest或上述Flash等方式，以（被攻击）用户的身份执行一些管理动作，或执行一些一般的如发微博、加好友、发私信等操作。</p>
+</li>
+<li>
+<p>利用可被攻击的域受到其他域信任的特点，以受信任来源的身份请求一些平时不允许的操作，如进行不当的投票活动。</p>
+</li>
+</ul>
+<p>XSS大概有三种攻击方式，DOM型XSS, 反射性XSS，存储型XSS。</p>
+<p>本篇文章先介绍DOM型XSS</p>
+<h2 id="domxss">DOM型XSS</h2>
+<p>基于DOM的XSS不需要服务器参与参数的解析，完全由浏览器完成，DOM—based XSS漏洞是基于文档对象模型Document Objeet Model，DOM)的一种漏洞。DOM是一个与平台、编程语言无关的接口，它允许程序或脚本动态地访问和更新文档内容、结构和样式，处理后的结果能够成为显示页面的一部分。DOM中有很多对象，其中一些是用户可以操纵的，如uRI ，location，refelTer等。客户端的脚本程序可以通过DOM动态地检查和修改页面内容，它不依赖于提交数据到服务器端，而从客户端获得DOM中的数据在本地执行，如果DOM中的数据没有经过严格确认，就会产生DOM—based XSS漏洞。</p>
+<blockquote>
+<p>当javascript在浏览器执行时，浏览器提供给javascript代码几个DOM对象。文档对象首先在这些对象之中，并且它代表着大多数浏览器呈现的页面的属性。这个文档对象包含很多子对象，例如location，URL和referrer。这些对象根据浏览器的显示填充浏览器。因此， document.URL 和 document.location是由页面的URL按照浏览器的解析填充的。注意这些对象不是提取自HTML的body-它们不会出现在数据页面。文档对象包含一个body对象，它代表对于HTML的解析。</p>
+</blockquote>
+<p><strong>举个例子：</strong></p>
+<p>下面这段代码会从url中获取当前登陆的用户名：</p>
+<pre><code class="html">
+&lt;HTML&gt;
+
+&lt;TITLE&gt;Welcome!&lt;/TITLE&gt;
+
+Hi
+
+&lt;SCRIPT&gt;
+
+var  pos=document.URL.indexOf(&quot;name=&quot;)+5;
+
+document.write(document.URL.substring(pos,document.URL.length));
+
+&lt;/SCRIPT&gt;
+
+&lt;BR&gt;
+
+Welcome to our system
+
+…
+
+&lt;/HTML&gt;
+</code></pre>
+
+<p>通常这个页面作为用户欢迎页面, 例如:</p>
+<pre><code class="text">
+http://www.vulnerable.site/welcome.html?name=Joe
+</code></pre>
+
+<p>上面的代码就会获取此url中的<code>joe</code>用户名</p>
+<p>然而当攻击者构造一个恶意的URL：</p>
+<pre><code class="text">
+http://www.vulnerable.site/welcome.html?name=&lt;script&gt;alert(document.cookie)&lt;/script&gt;
+</code></pre>
+
+<p>将产生xss条件。</p>
 <h2 id="low">Low等级</h2>
-<p>判断session ID分配的方法就是通过抓包寻找规律，但是稍微正常点的网站都会使用随机值去分配Session ID，不像Low等级一样这么傻。</p>
-<p><img alt="20190507225723.png" src="https://raw.githubusercontent.com/handbye/images/master/20190507225723.png" /></p>
-<p>点击Genetate抓包查看cookies。</p>
+<p>选择一个语言，抓包发现request请求为：</p>
 <pre><code class="text">
-Cookie: dvwaSession=1; security=low; PHPSESSID=phfts9604mgm9mbn4pqqlmkos1
+http://127.0.0.1/dvwa/vulnerabilities/xss_d/?default=French
 </code></pre>
 
-<pre><code class="text">
-Cookie: dvwaSession=2; security=low; PHPSESSID=phfts9604mgm9mbn4pqqlmkos1
-</code></pre>
-
-<p>...</p>
-<p>可发现session id是由1不断增加，每次加1.</p>
-<p>查看代码也是如此：</p>
-<p><img alt="20190507230130.png" src="https://raw.githubusercontent.com/handbye/images/master/20190507230130.png" /></p>
+<p>在<code>default=</code>后面构造xss，会不会造成恶意代码执行呢，尝试一下：</p>
+<p><img alt="20190511172535.png" src="https://raw.githubusercontent.com/handbye/images/master/20190511172535.png" /></p>
+<p>执行成功。</p>
 <h2 id="medium">Medium等级</h2>
-<p>同样点击Genetate抓包查看cookies。</p>
-<pre><code class="txt">
-dvwaSession=1557241378; security=medium; PHPSESSID=phfts9604mgm9mbn4pqqlmkos1
-</code></pre>
-
+<p>和Low等级执行相同的xss，发现无法执行，怀疑是对用户输入做了过滤，变换构造方法再次执行：</p>
+<p><img alt="20190511175311.png" src="https://raw.githubusercontent.com/handbye/images/master/20190511175311.png" /></p>
+<p>界面上无任何提示，我们查看网页源代码，发现我们的语句被插入到了value值中，但是并没有插入到option标签的值中，所以img标签并没有发起任何作用。</p>
+<p><img alt="20190511175427.png" src="https://raw.githubusercontent.com/handbye/images/master/20190511175427.png" /></p>
+<p>所以构造链接：</p>
 <pre><code class="text">
-Cookie: dvwaSession=1557241380; security=medium; PHPSESSID=phfts9604mgm9mbn4pqqlmkos1
+http://127.0.0.1/dvwa/vulnerabilities/xss_d/?default=&lt;/option&gt;&lt;/select&gt;&lt;img src=1 onerror=alert(1)&gt;
 </code></pre>
 
-<p>...</p>
-<p>判断规律，发现是当前时间的时间戳，这个有点难判断，但是遇到这种10位数的我们应该往这上面去想。推荐一个在线工具可计算时间戳：<a href="https://tool.lu/timestamp/">https://tool.lu/timestamp/</a></p>
-<p>查看代码：</p>
-<p><img alt="20190507230958.png" src="https://raw.githubusercontent.com/handbye/images/master/20190507230958.png" /></p>
+<p><img alt="20190511182121.png" src="https://raw.githubusercontent.com/handbye/images/master/20190511182121.png" /></p>
+<p>可看到执行成功，因为将<code>&lt;option&gt;</code>闭合后, 构造的参数成了独立的js代码。</p>
+<p><img alt="20190511182322.png" src="https://raw.githubusercontent.com/handbye/images/master/20190511182322.png" /></p>
+<p>查看Medium等级源码，发现对<code>&lt;script&gt;</code>做了过滤。</p>
+<p><img alt="20190511182355.png" src="https://raw.githubusercontent.com/handbye/images/master/20190511182355.png" /></p>
 <h2 id="high">High等级</h2>
-<p>同样点击Genetate抓包查看cookies。</p>
-<pre><code class="text">
-dvwaSession=9bf31c7ff062936a96d3c8bd1f8f2ff3; expires=Tue, 07-May-2019 16:13:41 GMT; path=/vulnerabilities/weak_id/; domain=127.0.0.1
-</code></pre>
-
-<pre><code class="text">
-dvwaSession=c74d97b01eae257e44aa9d5bade97baf; expires=Tue, 07-May-2019 16:14:29 GMT; path=/vulnerabilities/weak_id/; domain=127.0.0.1
-</code></pre>
-
-<p>...</p>
-<p>观察9bf31c7ff062936a96d3c8bd1f8f2ff3和c74d97b01eae257e44aa9d5bade97baf 是不是很像32位的MD5加密呢，尝试去解密：</p>
-<p>9bf31c7ff062936a96d3c8bd1f8f2ff3解密为15</p>
-<p>c74d97b01eae257e44aa9d5bade97baf解密为16</p>
-<p>可发现此等级和Low等级一样也是逐渐加1，只不过用了MD5进行加密。</p>
-<p>查看代码：</p>
-<p><img alt="20190507231820.png" src="https://raw.githubusercontent.com/handbye/images/master/20190507231820.png" /></p>
+<p>使用Medium等级的构造进行执行，发现无效。</p>
+<p>查看源代码：</p>
+<p><img alt="20190511182741.png" src="https://raw.githubusercontent.com/handbye/images/master/20190511182741.png" /></p>
+<p>这里high级别的代码先判断defalut值是否为空，如果不为空的话，再用switch语句进行匹配，如果匹配成功，则插入case字段的相应值，如果不匹配，则插入的是默认的值。这样的话，我们的语句就没有可能插入到页面中了。</p>
+<p>但是我们可以利用url中<code>#</code>号的特殊性，<strong>URL中#号之后的内容，不会被提交到服务器，可以直接与浏览器进行交互</strong>。</p>
+<p><img alt="20190511184116.png" src="https://raw.githubusercontent.com/handbye/images/master/20190511184116.png" /></p>
+<p>可以看到此方法依旧可以执行js代码。</p>
 <h2 id="impossible">Impossible等级</h2>
-<pre><code>
-dvwaSession=ff034153e10d10820f6e0cb9602fbc3faf7ece57; expires=Tue, 07-May-2019 16:32:46 GMT; path=/vulnerabilities/weak_id/; domain=127.0.0.1; secure; httponly
+<p>尝试使用：</p>
+<pre><code class="text">
+http://127.0.0.1/dvwa/vulnerabilities/xss_d/?default=English&lt;script&gt;alert(1)&lt;/script&gt;
 </code></pre>
 
-<p>此等级下的session id 为40位的随机字符串，无规律可循。</p>
-<p>查看代码：</p>
-<p><img alt="20190507233605.png" src="https://raw.githubusercontent.com/handbye/images/master/20190507233605.png" /></p>
-<p>可看到是由随机字符串加时间戳再由sha1加密后的字符串，无法破解。</p>
+<p>发现语言框内的值是我们输入的参数的经过URL编码后的数据：</p>
+<p><img alt="20190511201808.png" src="https://raw.githubusercontent.com/handbye/images/master/20190511201808.png" /></p>
+<p>查看源代码，发现这里对我们输入的参数并没有进行URL解码，所以我们输入的任何参数都是经过URL编码，然后直接赋值给option标签。所以，就不存在XSS漏洞了。</p>
                 
                   
                 
@@ -591,7 +655,7 @@ dvwaSession=ff034153e10d10820f6e0cb9602fbc3faf7ece57; expires=Tue, 07-May-2019 1
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../DVWA sql盲注(sql blind injection)/" title="SQL Blind Injection" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../DVWA 不安全的session ID（Weak Session IDs）/" title="Weak Session ID" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -600,25 +664,11 @@ dvwaSession=ff034153e10d10820f6e0cb9602fbc3faf7ece57; expires=Tue, 07-May-2019 1
                 <span class="md-footer-nav__direction">
                   后退
                 </span>
-                SQL Blind Injection
+                Weak Session ID
               </span>
             </div>
           </a>
         
-        
-          <a href="../DVWA DOM型XSS(XSS-DOM)/" title="XSS-DOM" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  前进
-                </span>
-                XSS-DOM
-              </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          </a>
         
       </nav>
     </div>
