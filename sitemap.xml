@@ -2,52 +2,57 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
      <loc>https://darkless.cn/my-docs/</loc>
-     <lastmod>2019-05-11</lastmod>
+     <lastmod>2019-05-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://darkless.cn/my-docs/DVWA暴力破解(Brute Force)/</loc>
-     <lastmod>2019-05-11</lastmod>
+     <lastmod>2019-05-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://darkless.cn/my-docs/DVWA命令注入(Command Injection)/</loc>
-     <lastmod>2019-05-11</lastmod>
+     <lastmod>2019-05-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://darkless.cn/my-docs/DVWA CSRF/</loc>
-     <lastmod>2019-05-11</lastmod>
+     <lastmod>2019-05-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://darkless.cn/my-docs/DVWA 文件包含(File Inclusion)/</loc>
-     <lastmod>2019-05-11</lastmod>
+     <lastmod>2019-05-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://darkless.cn/my-docs/DVWA 文件上传(File Upload)/</loc>
-     <lastmod>2019-05-11</lastmod>
+     <lastmod>2019-05-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://darkless.cn/my-docs/DVWA sql回显注入(sql injection)/</loc>
-     <lastmod>2019-05-11</lastmod>
+     <lastmod>2019-05-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://darkless.cn/my-docs/DVWA sql盲注(sql blind injection)/</loc>
-     <lastmod>2019-05-11</lastmod>
+     <lastmod>2019-05-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://darkless.cn/my-docs/DVWA 不安全的session ID（Weak Session IDs）/</loc>
-     <lastmod>2019-05-11</lastmod>
+     <lastmod>2019-05-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://darkless.cn/my-docs/DVWA DOM型XSS(XSS-DOM)/</loc>
-     <lastmod>2019-05-11</lastmod>
+     <lastmod>2019-05-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://darkless.cn/my-docs/DVWA 反射型XSS（XSS-Reflected）/</loc>
+     <lastmod>2019-05-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>

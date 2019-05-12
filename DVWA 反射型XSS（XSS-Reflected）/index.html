@@ -13,7 +13,7 @@
         <meta name="description" content="drkless docs">
       
       
-        <link rel="canonical" href="https://darkless.cn/my-docs/DVWA命令注入(Command Injection)/">
+        <link rel="canonical" href="https://darkless.cn/my-docs/DVWA 反射型XSS（XSS-Reflected）/">
       
       
         <meta name="author" content="hand">
@@ -42,7 +42,7 @@
     
     
       
-        <title>Command Injection - DarkLess</title>
+        <title>XSS-Reflected - DarkLess</title>
       
     
     
@@ -110,7 +110,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#low" tabindex="1" class="md-skip">
+      <a href="#xss" tabindex="1" class="md-skip">
         跳转至
       </a>
     
@@ -135,7 +135,7 @@
               DarkLess
             </span>
             <span class="md-header-nav__topic">
-              Command Injection
+              XSS-Reflected
             </span>
           
         </div>
@@ -281,66 +281,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Command Injection
-      </label>
-    
-    <a href="./" title="Command Injection" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../DVWA命令注入(Command Injection)/" title="Command Injection" class="md-nav__link">
       Command Injection
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">目录</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#low" title="Low等级" class="md-nav__link">
-    Low等级
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#medium" title="Medium等级" class="md-nav__link">
-    Medium等级
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#hight" title="Hight等级" class="md-nav__link">
-    Hight等级
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#impossible" title="Impossible" class="md-nav__link">
-    Impossible
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -432,11 +377,73 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../DVWA 反射型XSS（XSS-Reflected）/" title="XSS-Reflected" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        XSS-Reflected
+      </label>
+    
+    <a href="./" title="XSS-Reflected" class="md-nav__link md-nav__link--active">
       XSS-Reflected
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#xss" title="反射型XSS简介" class="md-nav__link">
+    反射型XSS简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#low" title="Low等级" class="md-nav__link">
+    Low等级
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#medium" title="Medium等级" class="md-nav__link">
+    Medium等级
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#high" title="High等级" class="md-nav__link">
+    High等级
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#impossible" title="Impossible等级" class="md-nav__link">
+    Impossible等级
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -464,6 +471,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#xss" title="反射型XSS简介" class="md-nav__link">
+    反射型XSS简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#low" title="Low等级" class="md-nav__link">
     Low等级
   </a>
@@ -478,15 +492,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#hight" title="Hight等级" class="md-nav__link">
-    Hight等级
+  <a href="#high" title="High等级" class="md-nav__link">
+    High等级
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#impossible" title="Impossible" class="md-nav__link">
-    Impossible
+  <a href="#impossible" title="Impossible等级" class="md-nav__link">
+    Impossible等级
   </a>
   
 </li>
@@ -508,73 +522,50 @@
               
                 
                 
-                  <h1>Command Injection</h1>
+                  <h1>XSS-Reflected</h1>
                 
-                <p>命令执行是指代码直接执行系统命令， 而我们可以利用windows或者linux下的命令拼接来达到执行另外的命令，这就是命令注入。</p>
-<p>在命令执行中，常用的命令连接符号有四个：</p>
-<ul>
-<li>
-<p><code>&amp;&amp;</code>:前一个指令执行成功，后面的指令才继续执行，就像进行与操作一样</p>
-</li>
-<li>
-<p><code>||</code>:前一个命令执行失败，后面的才继续执行，类似于或操作</p>
-</li>
-<li>
-<p><code>&amp;</code>：直接连接多个命令</p>
-</li>
-<li>
-<p><code>|</code>：管道符，将前一个命令的输出作为下一个命令的输入</p>
-</li>
-<li>
-<p><code>;</code>：直接连接多个命令</p>
-</li>
-</ul>
+                <h2 id="xss">反射型XSS简介</h2>
+<p>接着<a href="https://darkless.cn/2019/05/11/dvwa-xss-dom/">上篇文章</a>介绍下什么是反射性XSS。</p>
+<p>在三种类型的XSS中，反射型XSS是利用最广泛的一种。它通过给别人发送带有恶意脚本代码参数的URL，当URL地址被打开时，特有的恶意代码参数被HTML解析、执行。它的特点是非持久化，必须用户点击带有特定参数的链接才能引起。</p>
 <h2 id="low">Low等级</h2>
-<p>在DVWA的low等级中，代码完全没有过滤任何参数，直接去执行了系统命令，代码如下：</p>
-<p><img alt="20190424231902.png" src="https://raw.githubusercontent.com/handbye/images/master/20190424231902.png" /></p>
-<p>所以我们可以进行简单的命令拼接就可以达到目的：</p>
-<p>在windows下可以使用<code>&amp;&amp;</code>或者<code>&amp;</code>进行命令拼接，在linux下可以使用<code>;</code>或者<code>&amp;&amp;</code>进行命令拼接。</p>
-<p>进行尝试：</p>
-<p><img alt="20190424232432.png" src="https://raw.githubusercontent.com/handbye/images/master/20190424232432.png" /></p>
-<p>可看到<code>net user</code>命令被正确执行。</p>
+<p>先尝试在输入框中随便输入一个字符。</p>
+<p><img alt="20190512092549.png" src="https://raw.githubusercontent.com/handbye/images/master/20190512092549.png" /></p>
+<p>可见，服务器是从输入框中获取用户输入，然后展示在前端页面上，那随便输入一段JS代码，看能否执行。</p>
+<p><img alt="20190512092833.png" src="https://raw.githubusercontent.com/handbye/images/master/20190512092833.png" /></p>
+<p>js代码被执行，说明存在xss攻击。</p>
+<p>查看源码发现，并未对用户的输入做任何过滤：</p>
+<p><img alt="20190512092952.png" src="https://raw.githubusercontent.com/handbye/images/master/20190512092952.png" /></p>
 <h2 id="medium">Medium等级</h2>
-<p>Medium等级下，先尝试用<code>&amp;&amp;</code>做命令拼接。</p>
-<p><img alt="20190425212427.png" src="https://raw.githubusercontent.com/handbye/images/master/20190425212427.png" /></p>
-<p>提示错误的参数，说明代码已经对输入的拼接做了过滤。再尝试用<code>&amp;</code>拼接。</p>
-<p><img alt="20190425212623.png" src="https://raw.githubusercontent.com/handbye/images/master/20190425212623.png" /></p>
-<p>命令执行成功，产看源代码发现只对<code>&amp;&amp;</code>和<code>;</code>做了过滤：</p>
-<p><img alt="20190425212721.png" src="https://raw.githubusercontent.com/handbye/images/master/20190425212721.png" /></p>
-<h2 id="hight">Hight等级</h2>
-<p>High等级下，尝试用<code>&amp;&amp;</code>和<code>&amp;</code>都会提示错误参数，再使用<code>|</code>和<code>||</code>尝试，发现<code>|</code>可以正常执行命令，查看代码：</p>
-<p><img alt="20190425213234.png" src="https://raw.githubusercontent.com/handbye/images/master/20190425213234.png" /></p>
-<p>代码已经将可能用到的命令拼接符号全部做了过滤，但是为什么<code>|</code>可以呢，仔细观察发现<code>|</code>后面有个空格，这就是编码的不细心导致的命令执行。</p>
-<h2 id="impossible">Impossible</h2>
-<p>Impossible等级使用了白名单的方式去检查我们的输入，它会将用户输入的数字用<code>.</code>分割，然后再重新拼接成IP地址，这就使得用户输入的其他参数是无效的。关键代码如下：</p>
-<pre><code class="php">
-
-
-// Get input
-
-$target  =  $_REQUEST[  'ip'  ];
-
-$target  =  stripslashes(  $target  );
-
-
-
-// Split the IP into 4 octects
-
-$octet  =  explode(  &quot;.&quot;,  $target  );
-
-
-
-// Check IF each octet is an integer
-
-if(  (  is_numeric(  $octet[0]  )  )  &amp;&amp;  (  is_numeric(  $octet[1]  )  )  &amp;&amp;  (  is_numeric(  $octet[2]  )  )  &amp;&amp;  (  is_numeric(  $octet[3]  )  )  &amp;&amp;  (  sizeof(  $octet  )  ==  4  )  )  {
-
-// If all 4 octets are int's put the IP back together.
-
-$target  =  $octet[0]  .  '.'  .  $octet[1]  .  '.'  .  $octet[2]  .  '.'  .  $octet[3];
+<p>使用Low等级的方法，输入一下js代码</p>
+<pre><code class="js">
+&lt;script&gt;alert(1)&lt;/script&gt;
 </code></pre>
+
+<p><img alt="20190512093136.png" src="https://raw.githubusercontent.com/handbye/images/master/20190512093136.png" /></p>
+<p>发现前端直接显示了alert(1),说明将用户输入的<code>&lt;acript&gt;</code>标签做了过滤。 换一种构造方式，重新输入：</p>
+<p>在输入框中输入:</p>
+<pre><code class="js">
+&lt;img  src='1'  onerror=alert(1)&gt;
+</code></pre>
+
+<p><img alt="20190512093449.png" src="https://raw.githubusercontent.com/handbye/images/master/20190512093449.png" /></p>
+<p>利用成功，查看源码发现对用户输入的<code>&lt;script&gt;</code>关键字做了替换，但并未对其它可能造成的xss攻击代码关键字做过滤。</p>
+<p><img alt="20190512093623.png" src="https://raw.githubusercontent.com/handbye/images/master/20190512093623.png" /></p>
+<h2 id="high">High等级</h2>
+<p>使用Medium等级的方法输入发现也可以造成xss攻击：</p>
+<p><img alt="20190512093907.png" src="https://raw.githubusercontent.com/handbye/images/master/20190512093907.png" /></p>
+<p>查看源码，发现只是用正则表达式匹配<code>&lt;script&gt;</code>里面的字母来做替换，并不能从根本上预防xss。</p>
+<p><img alt="20190512094350.png" src="https://raw.githubusercontent.com/handbye/images/master/20190512094350.png" /></p>
+<h2 id="impossible">Impossible等级</h2>
+<p>随便输入一个字符查看结果：</p>
+<p><img alt="20190512094547.png" src="https://raw.githubusercontent.com/handbye/images/master/20190512094547.png" /></p>
+<p>发现此等级还使用了user_token。</p>
+<p>使用High等级的方法进行输入：</p>
+<p><img alt="20190512094659.png" src="https://raw.githubusercontent.com/handbye/images/master/20190512094659.png" /></p>
+<p>发现直接将用户的输入原封不动的打印了出来，这样的话我们的任何构造输入都将无效。</p>
+<p>查看源码：</p>
+<p><img alt="20190512095029.png" src="https://raw.githubusercontent.com/handbye/images/master/20190512095029.png" /></p>
+<p>发现使用了<code>htmlspecialchars()</code>函数，它会把预定义的字符 "&lt;" （小于）和 "&gt;" （大于）转换为 HTML 实体。</p>
                 
                   
                 
@@ -595,7 +586,7 @@ $target  =  $octet[0]  .  '.'  .  $octet[1]  .  '.'  .  $octet[2]  .  '.'  .  $o
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../DVWA暴力破解(Brute Force)/" title="Brute Force" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../DVWA DOM型XSS(XSS-DOM)/" title="XSS-DOM" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -604,25 +595,11 @@ $target  =  $octet[0]  .  '.'  .  $octet[1]  .  '.'  .  $octet[2]  .  '.'  .  $o
                 <span class="md-footer-nav__direction">
                   后退
                 </span>
-                Brute Force
+                XSS-DOM
               </span>
             </div>
           </a>
         
-        
-          <a href="../DVWA CSRF/" title="CSRF" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  前进
-                </span>
-                CSRF
-              </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          </a>
         
       </nav>
     </div>
