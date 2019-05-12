@@ -6,52 +6,52 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://darkless.cn/my-docs/DVWA暴力破解(Brute Force)/</loc>
+     <loc>https://darkless.cn/my-docs/DVWA-Brute-Force/</loc>
      <lastmod>2019-05-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://darkless.cn/my-docs/DVWA命令注入(Command Injection)/</loc>
+     <loc>https://darkless.cn/my-docs/DVWA-Command-Injection/</loc>
      <lastmod>2019-05-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://darkless.cn/my-docs/DVWA CSRF/</loc>
+     <loc>https://darkless.cn/my-docs/DVWA-CSRF/</loc>
      <lastmod>2019-05-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://darkless.cn/my-docs/DVWA 文件包含(File Inclusion)/</loc>
+     <loc>https://darkless.cn/my-docs/DVWA-File-Inclusion/</loc>
      <lastmod>2019-05-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://darkless.cn/my-docs/DVWA 文件上传(File Upload)/</loc>
+     <loc>https://darkless.cn/my-docs/DVWA-File-Upload/</loc>
      <lastmod>2019-05-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://darkless.cn/my-docs/DVWA sql回显注入(sql injection)/</loc>
+     <loc>https://darkless.cn/my-docs/DVWA-sql-injection/</loc>
      <lastmod>2019-05-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://darkless.cn/my-docs/DVWA sql盲注(sql blind injection)/</loc>
+     <loc>https://darkless.cn/my-docs/DVWA-sql-blind-injection/</loc>
      <lastmod>2019-05-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://darkless.cn/my-docs/DVWA 不安全的session ID（Weak Session IDs）/</loc>
+     <loc>https://darkless.cn/my-docs/DVWA-Weak Session IDs/</loc>
      <lastmod>2019-05-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://darkless.cn/my-docs/DVWA DOM型XSS(XSS-DOM)/</loc>
+     <loc>https://darkless.cn/my-docs/DVWA-XSS-DOM/</loc>
      <lastmod>2019-05-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://darkless.cn/my-docs/DVWA 反射型XSS（XSS-Reflected）/</loc>
+     <loc>https://darkless.cn/my-docs/DVWA-XSS-Reflected/</loc>
      <lastmod>2019-05-12</lastmod>
      <changefreq>daily</changefreq>
     </url>

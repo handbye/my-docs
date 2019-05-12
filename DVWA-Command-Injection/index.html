@@ -13,7 +13,7 @@
         <meta name="description" content="drkless docs">
       
       
-        <link rel="canonical" href="https://darkless.cn/my-docs/DVWA DOM型XSS(XSS-DOM)/">
+        <link rel="canonical" href="https://darkless.cn/my-docs/DVWA-Command-Injection/">
       
       
         <meta name="author" content="hand">
@@ -42,7 +42,7 @@
     
     
       
-        <title>XSS-DOM - DarkLess</title>
+        <title>Command Injection - DarkLess</title>
       
     
     
@@ -110,7 +110,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#xss" tabindex="1" class="md-skip">
+      <a href="#low" tabindex="1" class="md-skip">
         跳转至
       </a>
     
@@ -135,7 +135,7 @@
               DarkLess
             </span>
             <span class="md-header-nav__topic">
-              XSS-DOM
+              Command Injection
             </span>
           
         </div>
@@ -201,7 +201,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../DVWA暴力破解(Brute Force)/" title="DVWA解题" class="md-tabs__link md-tabs__link--active">
+        <a href="../DVWA-Brute-Force/" title="DVWA解题" class="md-tabs__link md-tabs__link--active">
           DVWA解题
         </a>
       
@@ -271,92 +271,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../DVWA暴力破解(Brute Force)/" title="Brute Force" class="md-nav__link">
+    <a href="../DVWA-Brute-Force/" title="Brute Force" class="md-nav__link">
       Brute Force
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../DVWA命令注入(Command Injection)/" title="Command Injection" class="md-nav__link">
-      Command Injection
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../DVWA CSRF/" title="CSRF" class="md-nav__link">
-      CSRF
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../DVWA 文件包含(File Inclusion)/" title="File Inclusion" class="md-nav__link">
-      File Inclusion
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../DVWA 文件上传(File Upload)/" title="File Upload" class="md-nav__link">
-      File Upload
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../DVWA sql回显注入(sql injection)/" title="SQL Injection" class="md-nav__link">
-      SQL Injection
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../DVWA sql盲注(sql blind injection)/" title="SQL Blind Injection" class="md-nav__link">
-      SQL Blind Injection
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../DVWA 不安全的session ID（Weak Session IDs）/" title="Weak Session ID" class="md-nav__link">
-      Weak Session ID
     </a>
   </li>
 
@@ -374,11 +290,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        XSS-DOM
+        Command Injection
       </label>
     
-    <a href="./" title="XSS-DOM" class="md-nav__link md-nav__link--active">
-      XSS-DOM
+    <a href="./" title="Command Injection" class="md-nav__link md-nav__link--active">
+      Command Injection
     </a>
     
       
@@ -388,20 +304,6 @@
   
     <label class="md-nav__title" for="__toc">目录</label>
     <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#xss" title="XSS 简介" class="md-nav__link">
-    XSS 简介
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#domxss" title="DOM型XSS" class="md-nav__link">
-    DOM型XSS
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#low" title="Low等级" class="md-nav__link">
@@ -418,15 +320,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#high" title="High等级" class="md-nav__link">
-    High等级
+  <a href="#hight" title="Hight等级" class="md-nav__link">
+    Hight等级
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#impossible" title="Impossible等级" class="md-nav__link">
-    Impossible等级
+  <a href="#impossible" title="Impossible" class="md-nav__link">
+    Impossible
   </a>
   
 </li>
@@ -448,7 +350,91 @@
 
 
   <li class="md-nav__item">
-    <a href="../DVWA 反射型XSS（XSS-Reflected）/" title="XSS-Reflected" class="md-nav__link">
+    <a href="../DVWA-CSRF/" title="CSRF" class="md-nav__link">
+      CSRF
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../DVWA-File-Inclusion/" title="File Inclusion" class="md-nav__link">
+      File Inclusion
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../DVWA-File-Upload/" title="File Upload" class="md-nav__link">
+      File Upload
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../DVWA-sql-injection/" title="SQL Injection" class="md-nav__link">
+      SQL Injection
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../DVWA-sql-blind-injection/" title="SQL Blind Injection" class="md-nav__link">
+      SQL Blind Injection
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../DVWA-Weak Session IDs/" title="Weak Session ID" class="md-nav__link">
+      Weak Session ID
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../DVWA-XSS-DOM/" title="XSS-DOM" class="md-nav__link">
+      XSS-DOM
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../DVWA-XSS-Reflected/" title="XSS-Reflected" class="md-nav__link">
       XSS-Reflected
     </a>
   </li>
@@ -478,20 +464,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#xss" title="XSS 简介" class="md-nav__link">
-    XSS 简介
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#domxss" title="DOM型XSS" class="md-nav__link">
-    DOM型XSS
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#low" title="Low等级" class="md-nav__link">
     Low等级
   </a>
@@ -506,15 +478,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#high" title="High等级" class="md-nav__link">
-    High等级
+  <a href="#hight" title="Hight等级" class="md-nav__link">
+    Hight等级
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#impossible" title="Impossible等级" class="md-nav__link">
-    Impossible等级
+  <a href="#impossible" title="Impossible" class="md-nav__link">
+    Impossible
   </a>
   
 </li>
@@ -536,117 +508,73 @@
               
                 
                 
-                  <h1>XSS-DOM</h1>
+                  <h1>Command Injection</h1>
                 
-                <h2 id="xss">XSS 简介</h2>
-<p>XSS(Cross Site Scripting) 跨站脚本攻击，CSS的重点不在跨站上，而在脚本上。大多数的XSS攻击是在目标网站上嵌入一段恶意的JS代码来完成特性的攻击，如获取用户登陆信息，获取键盘输入，网页截屏等操作。</p>
-<p>XSS的危害：</p>
+                <p>命令执行是指代码直接执行系统命令， 而我们可以利用windows或者linux下的命令拼接来达到执行另外的命令，这就是命令注入。</p>
+<p>在命令执行中，常用的命令连接符号有四个：</p>
 <ul>
 <li>
-<p>通过document.cookie盗取cookie</p>
+<p><code>&amp;&amp;</code>:前一个指令执行成功，后面的指令才继续执行，就像进行与操作一样</p>
 </li>
 <li>
-<p>使用js或css破坏页面正常的结构与样式</p>
+<p><code>||</code>:前一个命令执行失败，后面的才继续执行，类似于或操作</p>
 </li>
 <li>
-<p>流量劫持（通过访问某段具有window.location.href定位到其他页面）</p>
+<p><code>&amp;</code>：直接连接多个命令</p>
 </li>
 <li>
-<p>Dos攻击：利用合理的客户端请求来占用过多的服务器资源，从而使合法用户无法得到服务器响应。</p>
+<p><code>|</code>：管道符，将前一个命令的输出作为下一个命令的输入</p>
 </li>
 <li>
-<p>利用iframe、frame、XMLHttpRequest或上述Flash等方式，以（被攻击）用户的身份执行一些管理动作，或执行一些一般的如发微博、加好友、发私信等操作。</p>
-</li>
-<li>
-<p>利用可被攻击的域受到其他域信任的特点，以受信任来源的身份请求一些平时不允许的操作，如进行不当的投票活动。</p>
+<p><code>;</code>：直接连接多个命令</p>
 </li>
 </ul>
-<p>XSS大概有三种攻击方式，DOM型XSS, 反射性XSS，存储型XSS。</p>
-<p>本篇文章先介绍DOM型XSS</p>
-<h2 id="domxss">DOM型XSS</h2>
-<p>基于DOM的XSS不需要服务器参与参数的解析，完全由浏览器完成，DOM—based XSS漏洞是基于文档对象模型Document Objeet Model，DOM)的一种漏洞。DOM是一个与平台、编程语言无关的接口，它允许程序或脚本动态地访问和更新文档内容、结构和样式，处理后的结果能够成为显示页面的一部分。DOM中有很多对象，其中一些是用户可以操纵的，如uRI ，location，refelTer等。客户端的脚本程序可以通过DOM动态地检查和修改页面内容，它不依赖于提交数据到服务器端，而从客户端获得DOM中的数据在本地执行，如果DOM中的数据没有经过严格确认，就会产生DOM—based XSS漏洞。</p>
-<blockquote>
-<p>当javascript在浏览器执行时，浏览器提供给javascript代码几个DOM对象。文档对象首先在这些对象之中，并且它代表着大多数浏览器呈现的页面的属性。这个文档对象包含很多子对象，例如location，URL和referrer。这些对象根据浏览器的显示填充浏览器。因此， document.URL 和 document.location是由页面的URL按照浏览器的解析填充的。注意这些对象不是提取自HTML的body-它们不会出现在数据页面。文档对象包含一个body对象，它代表对于HTML的解析。</p>
-</blockquote>
-<p><strong>举个例子：</strong></p>
-<p>下面这段代码会从url中获取当前登陆的用户名：</p>
-<pre><code class="html">
-&lt;HTML&gt;
-
-&lt;TITLE&gt;Welcome!&lt;/TITLE&gt;
-
-Hi
-
-&lt;SCRIPT&gt;
-
-var  pos=document.URL.indexOf(&quot;name=&quot;)+5;
-
-document.write(document.URL.substring(pos,document.URL.length));
-
-&lt;/SCRIPT&gt;
-
-&lt;BR&gt;
-
-Welcome to our system
-
-…
-
-&lt;/HTML&gt;
-</code></pre>
-
-<p>通常这个页面作为用户欢迎页面, 例如:</p>
-<pre><code class="text">
-http://www.vulnerable.site/welcome.html?name=Joe
-</code></pre>
-
-<p>上面的代码就会获取此url中的<code>joe</code>用户名</p>
-<p>然而当攻击者构造一个恶意的URL：</p>
-<pre><code class="text">
-http://www.vulnerable.site/welcome.html?name=&lt;script&gt;alert(document.cookie)&lt;/script&gt;
-</code></pre>
-
-<p>将产生xss条件。</p>
 <h2 id="low">Low等级</h2>
-<p>选择一个语言，抓包发现request请求为：</p>
-<pre><code class="text">
-http://127.0.0.1/dvwa/vulnerabilities/xss_d/?default=French
-</code></pre>
-
-<p>在<code>default=</code>后面构造xss，会不会造成恶意代码执行呢，尝试一下：</p>
-<p><img alt="20190511172535.png" src="https://raw.githubusercontent.com/handbye/images/master/20190511172535.png" /></p>
-<p>执行成功。</p>
+<p>在DVWA的low等级中，代码完全没有过滤任何参数，直接去执行了系统命令，代码如下：</p>
+<p><img alt="20190424231902.png" src="https://raw.githubusercontent.com/handbye/images/master/20190424231902.png" /></p>
+<p>所以我们可以进行简单的命令拼接就可以达到目的：</p>
+<p>在windows下可以使用<code>&amp;&amp;</code>或者<code>&amp;</code>进行命令拼接，在linux下可以使用<code>;</code>或者<code>&amp;&amp;</code>进行命令拼接。</p>
+<p>进行尝试：</p>
+<p><img alt="20190424232432.png" src="https://raw.githubusercontent.com/handbye/images/master/20190424232432.png" /></p>
+<p>可看到<code>net user</code>命令被正确执行。</p>
 <h2 id="medium">Medium等级</h2>
-<p>和Low等级执行相同的xss，发现无法执行，怀疑是对用户输入做了过滤，变换构造方法再次执行：</p>
-<p><img alt="20190511175311.png" src="https://raw.githubusercontent.com/handbye/images/master/20190511175311.png" /></p>
-<p>界面上无任何提示，我们查看网页源代码，发现我们的语句被插入到了value值中，但是并没有插入到option标签的值中，所以img标签并没有发起任何作用。</p>
-<p><img alt="20190511175427.png" src="https://raw.githubusercontent.com/handbye/images/master/20190511175427.png" /></p>
-<p>所以构造链接：</p>
-<pre><code class="text">
-http://127.0.0.1/dvwa/vulnerabilities/xss_d/?default=&lt;/option&gt;&lt;/select&gt;&lt;img src=1 onerror=alert(1)&gt;
-</code></pre>
+<p>Medium等级下，先尝试用<code>&amp;&amp;</code>做命令拼接。</p>
+<p><img alt="20190425212427.png" src="https://raw.githubusercontent.com/handbye/images/master/20190425212427.png" /></p>
+<p>提示错误的参数，说明代码已经对输入的拼接做了过滤。再尝试用<code>&amp;</code>拼接。</p>
+<p><img alt="20190425212623.png" src="https://raw.githubusercontent.com/handbye/images/master/20190425212623.png" /></p>
+<p>命令执行成功，产看源代码发现只对<code>&amp;&amp;</code>和<code>;</code>做了过滤：</p>
+<p><img alt="20190425212721.png" src="https://raw.githubusercontent.com/handbye/images/master/20190425212721.png" /></p>
+<h2 id="hight">Hight等级</h2>
+<p>High等级下，尝试用<code>&amp;&amp;</code>和<code>&amp;</code>都会提示错误参数，再使用<code>|</code>和<code>||</code>尝试，发现<code>|</code>可以正常执行命令，查看代码：</p>
+<p><img alt="20190425213234.png" src="https://raw.githubusercontent.com/handbye/images/master/20190425213234.png" /></p>
+<p>代码已经将可能用到的命令拼接符号全部做了过滤，但是为什么<code>|</code>可以呢，仔细观察发现<code>|</code>后面有个空格，这就是编码的不细心导致的命令执行。</p>
+<h2 id="impossible">Impossible</h2>
+<p>Impossible等级使用了白名单的方式去检查我们的输入，它会将用户输入的数字用<code>.</code>分割，然后再重新拼接成IP地址，这就使得用户输入的其他参数是无效的。关键代码如下：</p>
+<pre><code class="php">
 
-<p><img alt="20190511182121.png" src="https://raw.githubusercontent.com/handbye/images/master/20190511182121.png" /></p>
-<p>可看到执行成功，因为将<code>&lt;option&gt;</code>闭合后, 构造的参数成了独立的js代码。</p>
-<p><img alt="20190511182322.png" src="https://raw.githubusercontent.com/handbye/images/master/20190511182322.png" /></p>
-<p>查看Medium等级源码，发现对<code>&lt;script&gt;</code>做了过滤。</p>
-<p><img alt="20190511182355.png" src="https://raw.githubusercontent.com/handbye/images/master/20190511182355.png" /></p>
-<h2 id="high">High等级</h2>
-<p>使用Medium等级的构造进行执行，发现无效。</p>
-<p>查看源代码：</p>
-<p><img alt="20190511182741.png" src="https://raw.githubusercontent.com/handbye/images/master/20190511182741.png" /></p>
-<p>这里high级别的代码先判断defalut值是否为空，如果不为空的话，再用switch语句进行匹配，如果匹配成功，则插入case字段的相应值，如果不匹配，则插入的是默认的值。这样的话，我们的语句就没有可能插入到页面中了。</p>
-<p>但是我们可以利用url中<code>#</code>号的特殊性，<strong>URL中#号之后的内容，不会被提交到服务器，可以直接与浏览器进行交互</strong>。</p>
-<p><img alt="20190511184116.png" src="https://raw.githubusercontent.com/handbye/images/master/20190511184116.png" /></p>
-<p>可以看到此方法依旧可以执行js代码。</p>
-<h2 id="impossible">Impossible等级</h2>
-<p>尝试使用：</p>
-<pre><code class="text">
-http://127.0.0.1/dvwa/vulnerabilities/xss_d/?default=English&lt;script&gt;alert(1)&lt;/script&gt;
-</code></pre>
 
-<p>发现语言框内的值是我们输入的参数的经过URL编码后的数据：</p>
-<p><img alt="20190511201808.png" src="https://raw.githubusercontent.com/handbye/images/master/20190511201808.png" /></p>
-<p>查看源代码，发现这里对我们输入的参数并没有进行URL解码，所以我们输入的任何参数都是经过URL编码，然后直接赋值给option标签。所以，就不存在XSS漏洞了。</p>
+// Get input
+
+$target  =  $_REQUEST[  'ip'  ];
+
+$target  =  stripslashes(  $target  );
+
+
+
+// Split the IP into 4 octects
+
+$octet  =  explode(  &quot;.&quot;,  $target  );
+
+
+
+// Check IF each octet is an integer
+
+if(  (  is_numeric(  $octet[0]  )  )  &amp;&amp;  (  is_numeric(  $octet[1]  )  )  &amp;&amp;  (  is_numeric(  $octet[2]  )  )  &amp;&amp;  (  is_numeric(  $octet[3]  )  )  &amp;&amp;  (  sizeof(  $octet  )  ==  4  )  )  {
+
+// If all 4 octets are int's put the IP back together.
+
+$target  =  $octet[0]  .  '.'  .  $octet[1]  .  '.'  .  $octet[2]  .  '.'  .  $octet[3];
+</code></pre>
                 
                   
                 
@@ -667,7 +595,7 @@ http://127.0.0.1/dvwa/vulnerabilities/xss_d/?default=English&lt;script&gt;alert(
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../DVWA 不安全的session ID（Weak Session IDs）/" title="Weak Session ID" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../DVWA-Brute-Force/" title="Brute Force" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -676,19 +604,19 @@ http://127.0.0.1/dvwa/vulnerabilities/xss_d/?default=English&lt;script&gt;alert(
                 <span class="md-footer-nav__direction">
                   后退
                 </span>
-                Weak Session ID
+                Brute Force
               </span>
             </div>
           </a>
         
         
-          <a href="../DVWA 反射型XSS（XSS-Reflected）/" title="XSS-Reflected" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../DVWA-CSRF/" title="CSRF" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   前进
                 </span>
-                XSS-Reflected
+                CSRF
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
