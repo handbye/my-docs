@@ -1,17 +1,5 @@
-# Welcome to MkDocs
+## 基于Mkdocs&Github构建
 
-For full documentation visit [mkdocs.org](https://mkdocs.org).
+- blog: [https://darkless.cn](https://darkless.cn)
 
-## Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs help` - Print this help message.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+- weibo: [https://weibo.com/handbye](https://weibo.com/handbye)

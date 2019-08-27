@@ -13,7 +13,7 @@
         <meta name="description" content="drkless docs">
       
       
-        <link rel="canonical" href="https://darkless.cn/my-docs/">
+        <link rel="canonical" href="https://darkless.cn/my-docs/DVWA-Command-Injection/">
       
       
         <meta name="author" content="hand">
@@ -37,18 +37,18 @@
       
         <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
       
-      <link rel="shortcut icon" href="assets/images/favicon.png">
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.1.2">
     
     
       
-        <title>DarkLess</title>
+        <title>Command Injection - DarkLess</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/application.3020aac5.css">
+      <link rel="stylesheet" href="../assets/stylesheets/application.3020aac5.css">
       
-        <link rel="stylesheet" href="assets/stylesheets/application-palette.224b79ff.css">
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.224b79ff.css">
       
       
         
@@ -57,12 +57,12 @@
       
     
     
-      <script src="assets/javascripts/modernizr.01ccdecf.js"></script>
+      <script src="../assets/javascripts/modernizr.01ccdecf.js"></script>
     
     
       
     
-    <link rel="stylesheet" href="assets/fonts/material-icons.css">
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
     
     
     
@@ -110,7 +110,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#mkdocsgithub" tabindex="1" class="md-skip">
+      <a href="#low" tabindex="1" class="md-skip">
         跳转至
       </a>
     
@@ -135,7 +135,7 @@
               DarkLess
             </span>
             <span class="md-header-nav__topic">
-              首页
+              Command Injection
             </span>
           
         </div>
@@ -180,14 +180,16 @@
       
         
 
-<nav class="md-tabs" data-md-component="tabs">
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
         
   <li class="md-tabs__item">
     
-      <a href="." title="首页" class="md-tabs__link md-tabs__link--active">
+      <a href=".." title="首页" class="md-tabs__link">
         首页
       </a>
     
@@ -199,7 +201,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="DVWA-Brute-Force/" title="DVWA解题" class="md-tabs__link">
+        <a href="../DVWA-Brute-Force/" title="DVWA解题" class="md-tabs__link md-tabs__link--active">
           DVWA解题
         </a>
       
@@ -234,45 +236,11 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        首页
-      </label>
-    
-    <a href="." title="首页" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href=".." title="首页" class="md-nav__link">
       首页
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">目录</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#mkdocsgithub" title="基于Mkdocs&amp;Github构建" class="md-nav__link">
-    基于Mkdocs&amp;Github构建
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
     
@@ -280,10 +248,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
     <label class="md-nav__link" for="nav-2">
       DVWA解题
@@ -301,7 +271,7 @@
 
 
   <li class="md-nav__item">
-    <a href="DVWA-Brute-Force/" title="Brute Force" class="md-nav__link">
+    <a href="../DVWA-Brute-Force/" title="Brute Force" class="md-nav__link">
       Brute Force
     </a>
   </li>
@@ -311,11 +281,66 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="DVWA-Command-Injection/" title="Command Injection" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Command Injection
+      </label>
+    
+    <a href="./" title="Command Injection" class="md-nav__link md-nav__link--active">
       Command Injection
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#low" title="Low等级" class="md-nav__link">
+    Low等级
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#medium" title="Medium等级" class="md-nav__link">
+    Medium等级
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hight" title="Hight等级" class="md-nav__link">
+    Hight等级
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#impossible" title="Impossible" class="md-nav__link">
+    Impossible
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -325,7 +350,7 @@
 
 
   <li class="md-nav__item">
-    <a href="DVWA-CSRF/" title="CSRF" class="md-nav__link">
+    <a href="../DVWA-CSRF/" title="CSRF" class="md-nav__link">
       CSRF
     </a>
   </li>
@@ -337,7 +362,7 @@
 
 
   <li class="md-nav__item">
-    <a href="DVWA-File-Inclusion/" title="File Inclusion" class="md-nav__link">
+    <a href="../DVWA-File-Inclusion/" title="File Inclusion" class="md-nav__link">
       File Inclusion
     </a>
   </li>
@@ -349,7 +374,7 @@
 
 
   <li class="md-nav__item">
-    <a href="DVWA-File-Upload/" title="File Upload" class="md-nav__link">
+    <a href="../DVWA-File-Upload/" title="File Upload" class="md-nav__link">
       File Upload
     </a>
   </li>
@@ -361,7 +386,7 @@
 
 
   <li class="md-nav__item">
-    <a href="DVWA-sql-injection/" title="SQL Injection" class="md-nav__link">
+    <a href="../DVWA-sql-injection/" title="SQL Injection" class="md-nav__link">
       SQL Injection
     </a>
   </li>
@@ -373,7 +398,7 @@
 
 
   <li class="md-nav__item">
-    <a href="DVWA-sql-blind-injection/" title="SQL Blind Injection" class="md-nav__link">
+    <a href="../DVWA-sql-blind-injection/" title="SQL Blind Injection" class="md-nav__link">
       SQL Blind Injection
     </a>
   </li>
@@ -385,7 +410,7 @@
 
 
   <li class="md-nav__item">
-    <a href="DVWA-Weak Session IDs/" title="Weak Session ID" class="md-nav__link">
+    <a href="../DVWA-Weak Session IDs/" title="Weak Session ID" class="md-nav__link">
       Weak Session ID
     </a>
   </li>
@@ -397,7 +422,7 @@
 
 
   <li class="md-nav__item">
-    <a href="DVWA-XSS-DOM/" title="XSS-DOM" class="md-nav__link">
+    <a href="../DVWA-XSS-DOM/" title="XSS-DOM" class="md-nav__link">
       XSS-DOM
     </a>
   </li>
@@ -409,7 +434,7 @@
 
 
   <li class="md-nav__item">
-    <a href="DVWA-XSS-Reflected/" title="XSS-Reflected" class="md-nav__link">
+    <a href="../DVWA-XSS-Reflected/" title="XSS-Reflected" class="md-nav__link">
       XSS-Reflected
     </a>
   </li>
@@ -421,7 +446,7 @@
 
 
   <li class="md-nav__item">
-    <a href="DVWA-XSS-Stored/" title="XSS-Stored" class="md-nav__link">
+    <a href="../DVWA-XSS-Stored/" title="XSS-Stored" class="md-nav__link">
       XSS-Stored
     </a>
   </li>
@@ -451,8 +476,29 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#mkdocsgithub" title="基于Mkdocs&amp;Github构建" class="md-nav__link">
-    基于Mkdocs&amp;Github构建
+  <a href="#low" title="Low等级" class="md-nav__link">
+    Low等级
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#medium" title="Medium等级" class="md-nav__link">
+    Medium等级
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hight" title="Hight等级" class="md-nav__link">
+    Hight等级
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#impossible" title="Impossible" class="md-nav__link">
+    Impossible
   </a>
   
 </li>
@@ -474,17 +520,73 @@
               
                 
                 
-                  <h1>首页</h1>
+                  <h1>Command Injection</h1>
                 
-                <h2 id="mkdocsgithub">基于Mkdocs&amp;Github构建</h2>
+                <p>命令执行是指代码直接执行系统命令， 而我们可以利用windows或者linux下的命令拼接来达到执行另外的命令，这就是命令注入。</p>
+<p>在命令执行中，常用的命令连接符号有四个：</p>
 <ul>
 <li>
-<p>blog: <a href="https://darkless.cn">https://darkless.cn</a></p>
+<p><code>&amp;&amp;</code>:前一个指令执行成功，后面的指令才继续执行，就像进行与操作一样</p>
 </li>
 <li>
-<p>weibo: <a href="https://weibo.com/handbye">https://weibo.com/handbye</a></p>
+<p><code>||</code>:前一个命令执行失败，后面的才继续执行，类似于或操作</p>
+</li>
+<li>
+<p><code>&amp;</code>：直接连接多个命令</p>
+</li>
+<li>
+<p><code>|</code>：管道符，将前一个命令的输出作为下一个命令的输入</p>
+</li>
+<li>
+<p><code>;</code>：直接连接多个命令</p>
 </li>
 </ul>
+<h2 id="low">Low等级</h2>
+<p>在DVWA的low等级中，代码完全没有过滤任何参数，直接去执行了系统命令，代码如下：</p>
+<p><img alt="20190424231902.png" src="https://raw.githubusercontent.com/handbye/images/master/20190424231902.png" /></p>
+<p>所以我们可以进行简单的命令拼接就可以达到目的：</p>
+<p>在windows下可以使用<code>&amp;&amp;</code>或者<code>&amp;</code>进行命令拼接，在linux下可以使用<code>;</code>或者<code>&amp;&amp;</code>进行命令拼接。</p>
+<p>进行尝试：</p>
+<p><img alt="20190424232432.png" src="https://raw.githubusercontent.com/handbye/images/master/20190424232432.png" /></p>
+<p>可看到<code>net user</code>命令被正确执行。</p>
+<h2 id="medium">Medium等级</h2>
+<p>Medium等级下，先尝试用<code>&amp;&amp;</code>做命令拼接。</p>
+<p><img alt="20190425212427.png" src="https://raw.githubusercontent.com/handbye/images/master/20190425212427.png" /></p>
+<p>提示错误的参数，说明代码已经对输入的拼接做了过滤。再尝试用<code>&amp;</code>拼接。</p>
+<p><img alt="20190425212623.png" src="https://raw.githubusercontent.com/handbye/images/master/20190425212623.png" /></p>
+<p>命令执行成功，产看源代码发现只对<code>&amp;&amp;</code>和<code>;</code>做了过滤：</p>
+<p><img alt="20190425212721.png" src="https://raw.githubusercontent.com/handbye/images/master/20190425212721.png" /></p>
+<h2 id="hight">Hight等级</h2>
+<p>High等级下，尝试用<code>&amp;&amp;</code>和<code>&amp;</code>都会提示错误参数，再使用<code>|</code>和<code>||</code>尝试，发现<code>|</code>可以正常执行命令，查看代码：</p>
+<p><img alt="20190425213234.png" src="https://raw.githubusercontent.com/handbye/images/master/20190425213234.png" /></p>
+<p>代码已经将可能用到的命令拼接符号全部做了过滤，但是为什么<code>|</code>可以呢，仔细观察发现<code>|</code>后面有个空格，这就是编码的不细心导致的命令执行。</p>
+<h2 id="impossible">Impossible</h2>
+<p>Impossible等级使用了白名单的方式去检查我们的输入，它会将用户输入的数字用<code>.</code>分割，然后再重新拼接成IP地址，这就使得用户输入的其他参数是无效的。关键代码如下：</p>
+<pre><code class="php">
+
+
+// Get input
+
+$target  =  $_REQUEST[  'ip'  ];
+
+$target  =  stripslashes(  $target  );
+
+
+
+// Split the IP into 4 octects
+
+$octet  =  explode(  &quot;.&quot;,  $target  );
+
+
+
+// Check IF each octet is an integer
+
+if(  (  is_numeric(  $octet[0]  )  )  &amp;&amp;  (  is_numeric(  $octet[1]  )  )  &amp;&amp;  (  is_numeric(  $octet[2]  )  )  &amp;&amp;  (  is_numeric(  $octet[3]  )  )  &amp;&amp;  (  sizeof(  $octet  )  ==  4  )  )  {
+
+// If all 4 octets are int's put the IP back together.
+
+$target  =  $octet[0]  .  '.'  .  $octet[1]  .  '.'  .  $octet[2]  .  '.'  .  $octet[3];
+</code></pre>
                 
                   
                 
@@ -505,14 +607,28 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
+          <a href="../DVWA-Brute-Force/" title="Brute Force" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                Brute Force
+              </span>
+            </div>
+          </a>
         
-          <a href="DVWA-Brute-Force/" title="Brute Force" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+        
+          <a href="../DVWA-CSRF/" title="CSRF" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   前进
                 </span>
-                Brute Force
+                CSRF
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -539,7 +655,7 @@
       </div>
       
   <div class="md-footer-social">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.css">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
     
       <a href="http://darkless.cn" class="md-footer-social__link fa fa-globe"></a>
     
@@ -555,26 +671,26 @@
       
     </div>
     
-      <script src="assets/javascripts/application.267712eb.js"></script>
+      <script src="../assets/javascripts/application.267712eb.js"></script>
       
         
         
           
-          <script src="assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          <script src="../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
           
             
               
-                <script src="assets/javascripts/lunr/tinyseg.js"></script>
+                <script src="../assets/javascripts/lunr/tinyseg.js"></script>
               
               
-                <script src="assets/javascripts/lunr/lunr.ja.js"></script>
+                <script src="../assets/javascripts/lunr/lunr.ja.js"></script>
               
             
           
           
         
       
-      <script>app.initialize({version:"1.0.4",url:{base:"."}})</script>
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
       
     
   </body>

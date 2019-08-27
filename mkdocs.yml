@@ -50,39 +50,22 @@ extra:
 
 # Extensions
 markdown_extensions:
-  - markdown.extensions.admonition
-  - markdown.extensions.codehilite:
-      guess_lang: false
-  - markdown.extensions.def_list
-  - markdown.extensions.footnotes
-  - markdown.extensions.meta
-  - markdown.extensions.toc:
-      permalink: true
-  - pymdownx.arithmatex
-  - pymdownx.betterem:
-      smart_enable: all
-  - pymdownx.caret
-  - pymdownx.critic
-  - pymdownx.details
-  - pymdownx.emoji:
-      emoji_generator: !!python/name:pymdownx.emoji.to_svg
-  - pymdownx.inlinehilite
-  - pymdownx.keys
-  - pymdownx.magiclink:
-      repo_url_shorthand: true
-      user: squidfunk
-      repo: mkdocs-material
-  - pymdownx.mark
-  - pymdownx.smartsymbols
-  - pymdownx.superfences
-  - pymdownx.tasklist:
-      custom_checkbox: true
-  - pymdownx.tilde
 
 # Page tree
 nav:
+  - 首页: index.md
   - DVWA解题:
-    - 暴力破解: DVWA暴力破解.md
+    - Brute Force: DVWA-Brute-Force.md
+    - Command Injection: DVWA-Command-Injection.md
+    - CSRF: DVWA-CSRF.md
+    - File Inclusion: DVWA-File-Inclusion.md
+    - File Upload: DVWA-File-Upload.md
+    - SQL Injection: DVWA-sql-injection.md
+    - SQL Blind Injection: DVWA-sql-blind-injection.md
+    - Weak Session ID: DVWA-Weak Session IDs.md
+    - XSS-DOM: DVWA-XSS-DOM.md
+    - XSS-Reflected: DVWA-XSS-Reflected.md
+    - XSS-Stored: DVWA-XSS-Stored.md
 
 # Google Analytics
 google_analytics:
