@@ -61,6 +61,11 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>https://darkless.cn/my-docs/XCTF-primary-writeup/</loc>
+     <lastmod>2019-08-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>https://darkless.cn/my-docs/XCTF-web-view_source/</loc>
      <lastmod>2019-08-28</lastmod>
      <changefreq>daily</changefreq>
