@@ -1,4 +1,4 @@
-XCTF web第一题view_source  werite up
+XCTF web第一题view_source  write up
 
 ## 题目
 
@@ -11,5 +11,3 @@ X老师让小宁同学查看一个网页的源代码，但小宁同学发现鼠�
 禁用js代码右键查看源代码即可得到flag：
 
 ![zwVmMegBRfocQYn](https://i.loli.net/2019/08/27/zwVmMegBRfocQYn.png)
-
-

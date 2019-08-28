@@ -66,6 +66,20 @@ nav:
     - XSS-DOM: DVWA-XSS-DOM.md
     - XSS-Reflected: DVWA-XSS-Reflected.md
     - XSS-Stored: DVWA-XSS-Stored.md
+  - XCTF WriteUp:
+    - view_source: XCTF-web-view_source.md
+    - get_post: XCTF-web-get_post.md
+    - robots: XCTF-web-robots.md
+    - backup: XCTF-web-backup.md
+    - cookie: XCTF-web-cookie.md
+    - disable_buttom: XCTF-web-disable_buttom.md
+    - simple_js: XCTF-web-simplejs.md
+    - xff_refer: XCTF-web-xff_refer.md
+    - weak_auth: XCTF-web-weak_auth.md
+    - webshell: XCTF-web-webshell.md
+    - command_execution: XCTF-web-command_execution.md
+    - simple_php: XCTF-web-simple_php.md
+
 
 # Google Analytics
 google_analytics:
