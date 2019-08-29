@@ -13,7 +13,7 @@
         <meta name="description" content="drkless docs">
       
       
-        <link rel="canonical" href="https://darkless.cn/my-docs/XCTF-web-weak_auth/">
+        <link rel="canonical" href="https://darkless.cn/my-docs/XCTF-web-NaNNaNNaNNaN-Batman/">
       
       
         <meta name="author" content="hand">
@@ -42,7 +42,7 @@
     
     
       
-        <title>weak_auth - DarkLess</title>
+        <title>NaNNaNNaNNaN-Batman - DarkLess</title>
       
     
     
@@ -136,7 +136,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                weak_auth
+                NaNNaNNaNNaN-Batman
               
             </span>
           
@@ -216,7 +216,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../XCTF-primary-writeup/" class="md-tabs__link md-tabs__link--active">
+        <a href="../XCTF-primary-writeup/" class="md-tabs__link">
           XCTF初级wp
         </a>
       
@@ -229,7 +229,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../XCTF-challenge-writeup/" class="md-tabs__link">
+        <a href="../XCTF-challenge-writeup/" class="md-tabs__link md-tabs__link--active">
           XCTF高级wp
         </a>
       
@@ -432,12 +432,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
       XCTF初级wp
@@ -561,52 +559,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        weak_auth
-      </label>
-    
-    <a href="./" title="weak_auth" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../XCTF-web-weak_auth/" title="weak_auth" class="md-nav__link">
       weak_auth
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">目录</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    题目
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    思路
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -655,10 +612,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
     
     <label class="md-nav__link" for="nav-4">
       XCTF高级wp
@@ -734,11 +693,52 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../XCTF-web-NaNNaNNaNNaN-Batman/" title="NaNNaNNaNNaN-Batman" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        NaNNaNNaNNaN-Batman
+      </label>
+    
+    <a href="./" title="NaNNaNNaNNaN-Batman" class="md-nav__link md-nav__link--active">
       NaNNaNNaNNaN-Batman
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    思路
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -767,7 +767,7 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    题目
+    题目描述
   </a>
   
 </li>
@@ -796,17 +796,54 @@
               
                 
                 
-                  <h1>weak_auth</h1>
+                  <h1>NaNNaNNaNNaN-Batman</h1>
                 
-                <p>XCTF第九题weak_auth  write up</p>
-<h2 id="_1">题目</h2>
-<p>小宁写了一个登陆验证页面，随手就设了一个密码。</p>
+                <h2 id="_1">题目描述</h2>
+<p>无</p>
 <h2 id="_2">思路</h2>
-<p>从题目得知此题的解法应该是爆破弱口令</p>
-<p>打开页面是个登录页，随手输入用户名和密码，提示必须用admin登录</p>
-<p><img alt="20190827190808.png" src="https://i.loli.net/2019/08/27/sn3AyJpY2gdtuBP.png" /></p>
-<p>接下来使用burp抓包爆破即可，过程胜率，直接看结果：</p>
-<p><img alt="20190827190913.png" src="https://i.loli.net/2019/08/27/MijNyHwYE465rzu.png" /></p>
+<p>下载提供的附件，解压后用编辑器打开发现是js代码，但是有一部分是乱码。</p>
+<p><img alt="20190829235522.png" src="https://raw.githubusercontent.com/handbye/images/master/20190829235522.png" /></p>
+<p>仔细查看这段js代码后，发现最后有个<code>eval()</code>函数执行行了前面的<code>_</code>函数。</p>
+<p>eval()函数：</p>
+<p><img alt="20190829235717.png" src="https://raw.githubusercontent.com/handbye/images/master/20190829235717.png" /></p>
+<p>猜测是前面代码中的一些字符被eval计算了，所以乱码。</p>
+<p>将eval函数改为alert()即可将原函数弹出来</p>
+<p><img alt="20190829235915.png" src="https://raw.githubusercontent.com/handbye/images/master/20190829235915.png" /></p>
+<pre><code class="js">function $() {
+    var e = document.getElementById(&quot;c&quot;).value;
+    if (e.length == 16) if (e.match(/^be0f23/) != null) if (e.match(/233ac/) != null) if (e.match(/e98aa$/) != null) if (e.match(/c7be9/) != null) {
+        var t = [&quot;fl&quot;, &quot;s_a&quot;, &quot;i&quot;, &quot;e}&quot;];
+        var n = [&quot;a&quot;, &quot;_h0l&quot;, &quot;n&quot;];
+        var r = [&quot;g{&quot;, &quot;e&quot;, &quot;_0&quot;];
+        var i = [&quot;it'&quot;, &quot;_&quot;, &quot;n&quot;];
+        var s = [t, n, r, i];
+        for (var o = 0; o &lt; 13; ++o) {
+            document.write(s[o % 4][0]);
+            s[o % 4].splice(0, 1)
+        }
+    }
+}
+document.write('&lt;input id=&quot;c&quot;&gt;&lt;button onclick=$()&gt;Ok&lt;/button&gt;');
+delete _
+</code></pre>
+
+<p>这就是原本的js代码，继续审计代码。</p>
+<p>只要e的规则符合长度为16并且以be0f23开头以e98aa结尾并且需要匹配233ac和c7be9即可.</p>
+<p>这样的字符串就是<code>be0f23ac7be98aa</code></p>
+<p><img alt="20190830000957.png" src="https://raw.githubusercontent.com/handbye/images/master/20190830000957.png" /></p>
+<p>输入至输入框中即可得到Flag</p>
+<p><img alt="20190830001038.png" src="https://raw.githubusercontent.com/handbye/images/master/20190830001038.png" /></p>
+<p>其实运行下面这段js代码也能得到Flag</p>
+<pre><code class="js">var t = [&quot;fl&quot;, &quot;s_a&quot;, &quot;i&quot;, &quot;e}&quot;];
+        var n = [&quot;a&quot;, &quot;_h0l&quot;, &quot;n&quot;];
+        var r = [&quot;g{&quot;, &quot;e&quot;, &quot;_0&quot;];
+        var i = [&quot;it'&quot;, &quot;_&quot;, &quot;n&quot;];
+        var s = [t, n, r, i];
+        for (var o = 0; o &lt; 13; ++o) {
+            document.write(s[o % 4][0]);
+            s[o % 4].splice(0, 1)
+        }
+</code></pre>
                 
                   
                 
@@ -827,7 +864,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../XCTF-web-xff_refer/" title="xff_refer" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../XCTF-web-mfw/" title="mfw" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -836,25 +873,11 @@
                 <span class="md-footer-nav__direction">
                   上一页
                 </span>
-                xff_refer
+                mfw
               </span>
             </div>
           </a>
         
-        
-          <a href="../XCTF-web-webshell/" title="webshell" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  下一页
-                </span>
-                webshell
-              </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          </a>
         
       </nav>
     </div>

@@ -13,7 +13,7 @@
         <meta name="description" content="drkless docs">
       
       
-        <link rel="canonical" href="https://darkless.cn/my-docs/XCTF-web-weak_auth/">
+        <link rel="canonical" href="https://darkless.cn/my-docs/XCTF-web-NewsCenter/">
       
       
         <meta name="author" content="hand">
@@ -42,7 +42,7 @@
     
     
       
-        <title>weak_auth - DarkLess</title>
+        <title>NewsCenter - DarkLess</title>
       
     
     
@@ -136,7 +136,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                weak_auth
+                NewsCenter
               
             </span>
           
@@ -216,7 +216,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../XCTF-primary-writeup/" class="md-tabs__link md-tabs__link--active">
+        <a href="../XCTF-primary-writeup/" class="md-tabs__link">
           XCTF初级wp
         </a>
       
@@ -229,7 +229,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../XCTF-challenge-writeup/" class="md-tabs__link">
+        <a href="../XCTF-challenge-writeup/" class="md-tabs__link md-tabs__link--active">
           XCTF高级wp
         </a>
       
@@ -432,12 +432,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
       XCTF初级wp
@@ -561,52 +559,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        weak_auth
-      </label>
-    
-    <a href="./" title="weak_auth" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../XCTF-web-weak_auth/" title="weak_auth" class="md-nav__link">
       weak_auth
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">目录</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    题目
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    思路
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -655,10 +612,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
     
     <label class="md-nav__link" for="nav-4">
       XCTF高级wp
@@ -710,11 +669,52 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../XCTF-web-NewsCenter/" title="NewsCenter" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        NewsCenter
+      </label>
+    
+    <a href="./" title="NewsCenter" class="md-nav__link md-nav__link--active">
       NewsCenter
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    思路
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -767,7 +767,7 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    题目
+    题目描述
   </a>
   
 </li>
@@ -796,17 +796,11 @@
               
                 
                 
-                  <h1>weak_auth</h1>
+                  <h1>NewsCenter</h1>
                 
-                <p>XCTF第九题weak_auth  write up</p>
-<h2 id="_1">题目</h2>
-<p>小宁写了一个登陆验证页面，随手就设了一个密码。</p>
+                <h2 id="_1">题目描述</h2>
+<p>无</p>
 <h2 id="_2">思路</h2>
-<p>从题目得知此题的解法应该是爆破弱口令</p>
-<p>打开页面是个登录页，随手输入用户名和密码，提示必须用admin登录</p>
-<p><img alt="20190827190808.png" src="https://i.loli.net/2019/08/27/sn3AyJpY2gdtuBP.png" /></p>
-<p>接下来使用burp抓包爆破即可，过程胜率，直接看结果：</p>
-<p><img alt="20190827190913.png" src="https://i.loli.net/2019/08/27/MijNyHwYE465rzu.png" /></p>
                 
                   
                 
@@ -827,7 +821,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../XCTF-web-xff_refer/" title="xff_refer" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../XCTF-web-ics-06/" title="ics-06" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -836,19 +830,19 @@
                 <span class="md-footer-nav__direction">
                   上一页
                 </span>
-                xff_refer
+                ics-06
               </span>
             </div>
           </a>
         
         
-          <a href="../XCTF-web-webshell/" title="webshell" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../XCTF-web-mfw/" title="mfw" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   下一页
                 </span>
-                webshell
+                mfw
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
