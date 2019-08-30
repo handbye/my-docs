@@ -742,6 +742,30 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../XCTF-web-upload/" title="upload" class="md-nav__link">
+      upload
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../XCTF-web-PHP2/" title="PHP2" class="md-nav__link">
+      PHP2
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -839,7 +863,7 @@ assert(&quot;file_exists('templates/aa') or phpinfo();#.php')&quot;) or die(&quo
 <p>如此一来就会执行phpinfo()</p>
 <p><img alt="20190829231400.png" src="https://raw.githubusercontent.com/handbye/images/master/20190829231400.png" /></p>
 <p>传入'page=aa') or print_r(file_get_contents('templates/flag.php'));#'即可得到flag.php的内容</p>
-<p>但是尝试无果，可能系统仅用了<code>file_get_contents</code>函数</p>
+<p>但是尝试无果，可能系统仅用了<code>file_get_contents</code>函数（这里更正下，并非禁用了此函数，而是要查看网页源码才能看到Flag,Flag是注释过的）</p>
 <p>只好换一种方法尝试，测试下能否执行系统函数<code>system()</code></p>
 <p>传入<code>'.system("ls").'</code>,如此代码就变为了<code>$file=templates/'.system("ls).'</code></p>
 <p>然后源码中的判断变成了下面这样：</p>

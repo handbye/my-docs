@@ -13,7 +13,7 @@
         <meta name="description" content="drkless docs">
       
       
-        <link rel="canonical" href="https://darkless.cn/my-docs/XCTF-web-Cat/">
+        <link rel="canonical" href="https://darkless.cn/my-docs/XCTF-web-PHP2/">
       
       
         <meta name="author" content="hand">
@@ -42,7 +42,7 @@
     
     
       
-        <title>Cat - DarkLess</title>
+        <title>PHP2 - DarkLess</title>
       
     
     
@@ -136,7 +136,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Cat
+                PHP2
               
             </span>
           
@@ -645,52 +645,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Cat
-      </label>
-    
-    <a href="./" title="Cat" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../XCTF-web-Cat/" title="Cat" class="md-nav__link">
       Cat
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">目录</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    题目描述
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    思路
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -758,11 +717,52 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../XCTF-web-PHP2/" title="PHP2" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        PHP2
+      </label>
+    
+    <a href="./" title="PHP2" class="md-nav__link md-nav__link--active">
       PHP2
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    思路
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -820,41 +820,31 @@
               
                 
                 
-                  <h1>Cat</h1>
+                  <h1>PHP2</h1>
                 
                 <h2 id="_1">题目描述</h2>
-<p>抓住那只猫</p>
+<p>暂无</p>
 <h2 id="_2">思路</h2>
-<p>打开页面，有个输入框输入域名，输入baidu.com进行测试</p>
-<p><img alt="20190828225655.png" src="https://i.loli.net/2019/08/28/6wrVvTDcmJb5dWt.png" /></p>
-<p>发现无任何回显，输入127.0.0.1进行测试。</p>
-<p><img alt="20190828225750.png" src="https://i.loli.net/2019/08/28/NXtyEwI3cdqUSVB.png" /></p>
-<p>发现已经执行成功，执行的是一个ping命令，一开始想的应该是命令拼接执行，但是输入任何有关拼接的字符串都会提示<code>invalid url</code></p>
-<p><img alt="20190828225940.png" src="https://i.loli.net/2019/08/28/JaATjL4Ng6Cc2bh.png" /></p>
-<p>说明系统对这些字符串都进行了过滤，fuzz测试后发现只有<code>@</code>没有被过滤。</p>
-<p><img alt="20190828230310.png" src="https://i.loli.net/2019/08/28/duRCLkM9OBStQUo.png" /></p>
-<p>且当输入<code>@</code>时，会将<code>@</code>编码为<code>%40</code></p>
-<p><img alt="20190828230426.png" src="https://i.loli.net/2019/08/28/slSeL9pakKZD67T.png" /></p>
-<p>尝试在url处输入宽字符，比如<code>%bf</code></p>
-<p><img alt="20190828232825.png" src="https://i.loli.net/2019/08/28/9KpdI3T8ReHChfJ.png" /></p>
-<p>出现报错信息，是一段html代码，将这些代码复制出来打开。</p>
-<p><img alt="20190828232945.png" src="https://i.loli.net/2019/08/28/4vRZJBoLwVOWS6d.png" /></p>
-<p>看到了熟悉的django报错页面，看来是将输入的参数传到了后端的django服务中进行解析，而django设置了编码为gbk导致错误编码了宽字符（超过了ascii码范围）。</p>
-<p>到这一步后，联系到前面的<code>@</code>字符没有被过滤，然后看了大佬们的解题思路（这里太坑了，原题目上其实是由提示的）</p>
-<p><img alt="20190828234335.png" src="https://i.loli.net/2019/08/28/gLfXo6iGKIVHbkt.png" /></p>
-<p>意思是可以用<code>@</code>读取文件内容。</p>
-<p>结合django的报错得知了项目的绝对路径为<code>/opt/api</code></p>
-<p><img alt="20190828234553.png" src="https://i.loli.net/2019/08/28/Dua5mChZ81Az4BG.png" /></p>
-<p>这里还需要懂一些django开发的基本知识，我感觉这道题涉及的面有点广了，django项目下一般有个settings.py文件是设置网站数据库路径（django默认使用的的是sqlites数据库），如果使用的是其它数据库的话settings.py则设置用户名和密码。除此外settings.py还会对项目整体的设置进行定义。</p>
-<p>读取settings.py文件，这里需要注意django项目生成时settings.py会存放在以项目目录下再以项目名称命名的文件夹下面。</p>
-<p><img alt="20190828235147.png" src="https://i.loli.net/2019/08/28/laRICAjKb7h58Mm.png" /></p>
-<p>同上将报错信息已html文件打开，可看到一些敏感信息：</p>
-<p><img alt="20190828235523.png" src="https://i.loli.net/2019/08/28/KBIMhHVtlpFubdx.png" /></p>
-<p>同样在使用<code>@</code>读取数据库信息</p>
-<p><img alt="20190828235757.png" src="https://i.loli.net/2019/08/28/Xm9nwxjvKrtEQeO.png" /></p>
-<p>在报错信息中搜索CTF得到flag。</p>
-<p><img alt="20190828235832.png" src="https://i.loli.net/2019/08/28/AbSCOlWmfojDeZk.png" /></p>
-<p>以上就是这道题的解法，我只能说大佬们的思路真野！</p>
+<p>打开题目</p>
+<p><img alt="20190830232649.png" src="https://raw.githubusercontent.com/handbye/images/master/20190830232649.png" /></p>
+<p>就这一句话，啥都没，看来得扫目录了。</p>
+<p><img alt="20190830232944.png" src="https://raw.githubusercontent.com/handbye/images/master/20190830232944.png" /></p>
+<p>扫出来三个目录，打开index.phps看下：</p>
+<p><img alt="20190830233045.png" src="https://raw.githubusercontent.com/handbye/images/master/20190830233045.png" /></p>
+<p>又学到一个新东西：</p>
+<blockquote>
+<p>phps文件就是php的源代码文件，通常用于提供给用户（访问者）查看php代码，因为用户无法直接通过Web浏览器看到php文件的内容，所以需要用phps文件代替。其实，只要不用php等已经在服&gt; 务器中注册过的MIME类型为文件即可，但为了国际通用，所以才用了phps文件类型。
+它的MIME类型为：text/html, application/x-httpd-php-source, application/x-httpd-php3-source。</p>
+</blockquote>
+<p>接下来就是代码审计了</p>
+<p>需要传入一个id并且这个id进行url解码后的值为admin</p>
+<p>这里需要注意的是当我们在浏览器输入admin时，浏览器会对admin进行一次url解码，所以需要对admin进行两次url编码才可</p>
+<p><img alt="20190830234614.png" src="https://raw.githubusercontent.com/handbye/images/master/20190830234614.png" /></p>
+<p>再进行一次编码：</p>
+<p><img alt="20190830234637.png" src="https://raw.githubusercontent.com/handbye/images/master/20190830234637.png" /></p>
+<p>最后结果为：%25%36%31%25%36%34%25%36%64%25%36%39%25%36%65</p>
+<p><img alt="20190830234756.png" src="https://raw.githubusercontent.com/handbye/images/master/20190830234756.png" /></p>
+<p>拿到flag</p>
                 
                   
                 
@@ -875,7 +865,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../XCTF-challenge-writeup/" title="XCTF-challenge-writeUp" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../XCTF-web-upload/" title="upload" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -884,25 +874,11 @@
                 <span class="md-footer-nav__direction">
                   上一页
                 </span>
-                XCTF-challenge-writeUp
+                upload
               </span>
             </div>
           </a>
         
-        
-          <a href="../XCTF-web-ics-06/" title="ics-06" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  下一页
-                </span>
-                ics-06
-              </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          </a>
         
       </nav>
     </div>
