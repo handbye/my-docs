@@ -56,7 +56,7 @@ nav:
   - 首页: index.md
   - DVWA解题:
     - Brute Force: DVWA-Brute-Force.md
-    - Command Injection: DVWA-Command-Injection.md
+    - Command Injection: DVWA-Command-Injection.md  +++++++++++`-*
     - CSRF: DVWA-CSRF.md
     - File Inclusion: DVWA-File-Inclusion.md
     - File Upload: DVWA-File-Upload.md
@@ -66,7 +66,8 @@ nav:
     - XSS-DOM: DVWA-XSS-DOM.md
     - XSS-Reflected: DVWA-XSS-Reflected.md
     - XSS-Stored: DVWA-XSS-Stored.md
-  - XCTF WriteUp:
+  - XCTF初级wp:
+    - XCTF-primary-writeUp: XCTF-primary-writeup.md
     - view_source: XCTF-web-view_source.md
     - get_post: XCTF-web-get_post.md
     - robots: XCTF-web-robots.md
@@ -79,7 +80,17 @@ nav:
     - webshell: XCTF-web-webshell.md
     - command_execution: XCTF-web-command_execution.md
     - simple_php: XCTF-web-simple_php.md
-
+  - XCTF高级wp:
+    - XCTF-challenge-writeUp: XCTF-challenge-writeup.md
+    - Cat: XCTF-web-Cat.md
+    - ics-06: XCTF-web-ics-06.md
+    - NewsCenter: XCTF-web-NewsCenter.md
+    - mfw: XCTF-web-mfw.md
+    - NaNNaNNaNNaN-Batman: XCTF-web-NaNNaNNaNNaN-Batman.md
+    - upload: XCTF-web-upload.md
+    - PHP2: XCTF-web-PHP2.md
+    - unserialize3: XCTF-web-unserialize3.md
+    - ics-05: XCTF-web-ics-05.md
 
 # Google Analytics
 google_analytics:

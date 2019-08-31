@@ -13,7 +13,7 @@
         <meta name="description" content="drkless docs">
       
       
-        <link rel="canonical" href="https://darkless.cn/my-docs/XCTF-web-disable_buttom/">
+        <link rel="canonical" href="https://darkless.cn/my-docs/XCTF-web-ics-06/">
       
       
         <meta name="author" content="hand">
@@ -42,7 +42,7 @@
     
     
       
-        <title>disable_buttom - DarkLess</title>
+        <title>ics-06 - DarkLess</title>
       
     
     
@@ -136,7 +136,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                disable_buttom
+                ics-06
               
             </span>
           
@@ -216,7 +216,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../XCTF-primary-writeup/" class="md-tabs__link md-tabs__link--active">
+        <a href="../XCTF-primary-writeup/" class="md-tabs__link">
           XCTF初级wp
         </a>
       
@@ -229,7 +229,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../XCTF-challenge-writeup/" class="md-tabs__link">
+        <a href="../XCTF-challenge-writeup/" class="md-tabs__link md-tabs__link--active">
           XCTF高级wp
         </a>
       
@@ -432,12 +432,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
       XCTF初级wp
@@ -525,52 +523,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        disable_buttom
-      </label>
-    
-    <a href="./" title="disable_buttom" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../XCTF-web-disable_buttom/" title="disable_buttom" class="md-nav__link">
       disable_buttom
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">目录</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    题目
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    思路
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -655,10 +612,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
     
     <label class="md-nav__link" for="nav-4">
       XCTF高级wp
@@ -698,11 +657,52 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../XCTF-web-ics-06/" title="ics-06" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        ics-06
+      </label>
+    
+    <a href="./" title="ics-06" class="md-nav__link md-nav__link--active">
       ics-06
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    题目
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    思路
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -820,22 +820,21 @@
               
                 
                 
-                  <h1>disable_buttom</h1>
+                  <h1>ics-06</h1>
                 
-                <p>XCTF第六题disable_buttom  write up</p>
-<h2 id="_1">题目</h2>
-<p>X老师今天上课讲了前端知识，然后给了大家一个不能按的按钮，小宁惊奇地发现这个按钮按不下去，到底怎么才能按下去呢？</p>
+                <h2 id="_1">题目</h2>
+<p>云平台报表中心收集了设备管理基础服务的数据，但是数据被删除了，只有一处留下了入侵者的痕迹。</p>
 <h2 id="_2">思路</h2>
-<p>打开页面，发现按钮无法点击。</p>
-<p><img alt="20190827125357.png" src="https://i.loli.net/2019/08/27/ktUKYqQO98L5He6.png" /></p>
-<p>F12查看源码</p>
-<p><img alt="20190827125538.png" src="https://i.loli.net/2019/08/27/ywVTMsa4UzrjfeB.png" /></p>
-<p>发现input标签有个disable属性</p>
-<blockquote>
-<p>disabled 属性规定应该禁用的 <code>&lt;input&gt;</code>元素。被禁用的 input 元素是无法使用和无法点击的。</p>
-</blockquote>
-<p>删除源码中的disable属性，按钮即可点击，然后得到Flag。</p>
-<p><img alt="20190827125908.png" src="https://i.loli.net/2019/08/27/lHt6GMmXSz8DWVx.png" /></p>
+<p>打开题目发现是一个工控云管理系统</p>
+<p><img alt="20190829211656.png" src="https://raw.githubusercontent.com/handbye/images/master/20190829211656.png" /></p>
+<p>依次点击左侧的导航菜单，发现只有报表中心可以点击，其实题目中也有提示。</p>
+<p>点开后发现是一个报表查询页面</p>
+<p><img alt="20190829211846.png" src="https://raw.githubusercontent.com/handbye/images/master/20190829211846.png" /></p>
+<p>选择日期范围什么也查不到，原本以为这里的日期查询可能存在注入什么的，尝试后证明我想多了，这里只写了各前端，根本没有后端。</p>
+<p>观察url链接，发现了id参数，利用点可能在这里，使用burp爆破下试试</p>
+<p><img alt="20190829212848.png" src="https://raw.githubusercontent.com/handbye/images/master/20190829212848.png" /></p>
+<p>发现到2333时数据包长度和其他的不同，将id的值改为2333获得flag。</p>
+<p><img alt="20190829214644.png" src="https://raw.githubusercontent.com/handbye/images/master/20190829214644.png" /></p>
                 
                   
                 
@@ -856,7 +855,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../XCTF-web-cookie/" title="cookie" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../XCTF-web-Cat/" title="Cat" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -865,19 +864,19 @@
                 <span class="md-footer-nav__direction">
                   上一页
                 </span>
-                cookie
+                Cat
               </span>
             </div>
           </a>
         
         
-          <a href="../XCTF-web-simplejs/" title="simple_js" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../XCTF-web-NewsCenter/" title="NewsCenter" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   下一页
                 </span>
-                simple_js
+                NewsCenter
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
