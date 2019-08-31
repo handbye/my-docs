@@ -56,7 +56,7 @@ nav:
   - 首页: index.md
   - DVWA解题:
     - Brute Force: DVWA-Brute-Force.md
-    - Command Injection: DVWA-Command-Injection.md  +++++++++++`-*
+    - Command Injection: DVWA-Command-Injection.md
     - CSRF: DVWA-CSRF.md
     - File Inclusion: DVWA-File-Inclusion.md
     - File Upload: DVWA-File-Upload.md
