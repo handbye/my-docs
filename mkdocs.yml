@@ -91,6 +91,9 @@ nav:
     - PHP2: XCTF-web-PHP2.md
     - unserialize3: XCTF-web-unserialize3.md
     - ics-05: XCTF-web-ics-05.md
+    - bug: XCTF-web-bug.md
+    - web2: XCTF-web-web2.md
+    - wft.sh-150: XCTF-web-wtf.sh-150.md
 
 # Google Analytics
 google_analytics:
