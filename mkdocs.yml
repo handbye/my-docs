@@ -94,6 +94,8 @@ nav:
     - bug: XCTF-web-bug.md
     - web2: XCTF-web-web2.md
     - wft.sh-150: XCTF-web-wtf.sh-150.md
+    - i-got-id-200: XCTF-web-i-got-id-200.md
+    - ics-07: XCTF-web-ics-07.md
 
 # Google Analytics
 google_analytics:
