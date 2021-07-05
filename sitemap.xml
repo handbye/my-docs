@@ -1,203 +1,203 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-     <loc>https://darkless.cn/my-docs/</loc>
-     <lastmod>2019-09-07</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://darkless.cn/my-docs/</loc>
+         <lastmod>2021-07-05</lastmod>
+         <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://darkless.cn/my-docs/DVWA-Brute-Force/</loc>
-     <lastmod>2019-09-07</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://darkless.cn/my-docs/DVWA-Brute-Force/</loc>
+         <lastmod>2021-07-05</lastmod>
+         <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://darkless.cn/my-docs/DVWA-Command-Injection/</loc>
-     <lastmod>2019-09-07</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://darkless.cn/my-docs/DVWA-CSRF/</loc>
+         <lastmod>2021-07-05</lastmod>
+         <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://darkless.cn/my-docs/DVWA-CSRF/</loc>
-     <lastmod>2019-09-07</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://darkless.cn/my-docs/DVWA-Command-Injection/</loc>
+         <lastmod>2021-07-05</lastmod>
+         <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://darkless.cn/my-docs/DVWA-File-Inclusion/</loc>
-     <lastmod>2019-09-07</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://darkless.cn/my-docs/DVWA-File-Inclusion/</loc>
+         <lastmod>2021-07-05</lastmod>
+         <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://darkless.cn/my-docs/DVWA-File-Upload/</loc>
-     <lastmod>2019-09-07</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://darkless.cn/my-docs/DVWA-File-Upload/</loc>
+         <lastmod>2021-07-05</lastmod>
+         <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://darkless.cn/my-docs/DVWA-sql-injection/</loc>
-     <lastmod>2019-09-07</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://darkless.cn/my-docs/DVWA-Weak%20Session%20IDs/</loc>
+         <lastmod>2021-07-05</lastmod>
+         <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://darkless.cn/my-docs/DVWA-sql-blind-injection/</loc>
-     <lastmod>2019-09-07</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://darkless.cn/my-docs/DVWA-XSS-DOM/</loc>
+         <lastmod>2021-07-05</lastmod>
+         <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://darkless.cn/my-docs/DVWA-Weak Session IDs/</loc>
-     <lastmod>2019-09-07</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://darkless.cn/my-docs/DVWA-XSS-Reflected/</loc>
+         <lastmod>2021-07-05</lastmod>
+         <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://darkless.cn/my-docs/DVWA-XSS-DOM/</loc>
-     <lastmod>2019-09-07</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://darkless.cn/my-docs/DVWA-XSS-Stored/</loc>
+         <lastmod>2021-07-05</lastmod>
+         <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://darkless.cn/my-docs/DVWA-XSS-Reflected/</loc>
-     <lastmod>2019-09-07</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://darkless.cn/my-docs/DVWA-sql-blind-injection/</loc>
+         <lastmod>2021-07-05</lastmod>
+         <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://darkless.cn/my-docs/DVWA-XSS-Stored/</loc>
-     <lastmod>2019-09-07</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://darkless.cn/my-docs/DVWA-sql-injection/</loc>
+         <lastmod>2021-07-05</lastmod>
+         <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://darkless.cn/my-docs/XCTF-primary-writeup/</loc>
-     <lastmod>2019-09-07</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://darkless.cn/my-docs/XCTF-challenge-writeup/</loc>
+         <lastmod>2021-07-05</lastmod>
+         <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://darkless.cn/my-docs/XCTF-web-view_source/</loc>
-     <lastmod>2019-09-07</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://darkless.cn/my-docs/XCTF-primary-writeup/</loc>
+         <lastmod>2021-07-05</lastmod>
+         <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://darkless.cn/my-docs/XCTF-web-get_post/</loc>
-     <lastmod>2019-09-07</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://darkless.cn/my-docs/XCTF-web-Cat/</loc>
+         <lastmod>2021-07-05</lastmod>
+         <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://darkless.cn/my-docs/XCTF-web-robots/</loc>
-     <lastmod>2019-09-07</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://darkless.cn/my-docs/XCTF-web-NaNNaNNaNNaN-Batman/</loc>
+         <lastmod>2021-07-05</lastmod>
+         <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://darkless.cn/my-docs/XCTF-web-backup/</loc>
-     <lastmod>2019-09-07</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://darkless.cn/my-docs/XCTF-web-NewsCenter/</loc>
+         <lastmod>2021-07-05</lastmod>
+         <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://darkless.cn/my-docs/XCTF-web-cookie/</loc>
-     <lastmod>2019-09-07</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://darkless.cn/my-docs/XCTF-web-PHP2/</loc>
+         <lastmod>2021-07-05</lastmod>
+         <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://darkless.cn/my-docs/XCTF-web-disable_buttom/</loc>
-     <lastmod>2019-09-07</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://darkless.cn/my-docs/XCTF-web-backup/</loc>
+         <lastmod>2021-07-05</lastmod>
+         <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://darkless.cn/my-docs/XCTF-web-simplejs/</loc>
-     <lastmod>2019-09-07</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://darkless.cn/my-docs/XCTF-web-bug/</loc>
+         <lastmod>2021-07-05</lastmod>
+         <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://darkless.cn/my-docs/XCTF-web-xff_refer/</loc>
-     <lastmod>2019-09-07</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://darkless.cn/my-docs/XCTF-web-command_execution/</loc>
+         <lastmod>2021-07-05</lastmod>
+         <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://darkless.cn/my-docs/XCTF-web-weak_auth/</loc>
-     <lastmod>2019-09-07</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://darkless.cn/my-docs/XCTF-web-cookie/</loc>
+         <lastmod>2021-07-05</lastmod>
+         <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://darkless.cn/my-docs/XCTF-web-webshell/</loc>
-     <lastmod>2019-09-07</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://darkless.cn/my-docs/XCTF-web-disable_buttom/</loc>
+         <lastmod>2021-07-05</lastmod>
+         <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://darkless.cn/my-docs/XCTF-web-command_execution/</loc>
-     <lastmod>2019-09-07</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://darkless.cn/my-docs/XCTF-web-get_post/</loc>
+         <lastmod>2021-07-05</lastmod>
+         <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://darkless.cn/my-docs/XCTF-web-simple_php/</loc>
-     <lastmod>2019-09-07</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://darkless.cn/my-docs/XCTF-web-i-got-id-200/</loc>
+         <lastmod>2021-07-05</lastmod>
+         <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://darkless.cn/my-docs/XCTF-challenge-writeup/</loc>
-     <lastmod>2019-09-07</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://darkless.cn/my-docs/XCTF-web-ics-05/</loc>
+         <lastmod>2021-07-05</lastmod>
+         <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://darkless.cn/my-docs/XCTF-web-Cat/</loc>
-     <lastmod>2019-09-07</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://darkless.cn/my-docs/XCTF-web-ics-06/</loc>
+         <lastmod>2021-07-05</lastmod>
+         <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://darkless.cn/my-docs/XCTF-web-ics-06/</loc>
-     <lastmod>2019-09-07</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://darkless.cn/my-docs/XCTF-web-ics-07/</loc>
+         <lastmod>2021-07-05</lastmod>
+         <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://darkless.cn/my-docs/XCTF-web-NewsCenter/</loc>
-     <lastmod>2019-09-07</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://darkless.cn/my-docs/XCTF-web-mfw/</loc>
+         <lastmod>2021-07-05</lastmod>
+         <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://darkless.cn/my-docs/XCTF-web-mfw/</loc>
-     <lastmod>2019-09-07</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://darkless.cn/my-docs/XCTF-web-robots/</loc>
+         <lastmod>2021-07-05</lastmod>
+         <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://darkless.cn/my-docs/XCTF-web-NaNNaNNaNNaN-Batman/</loc>
-     <lastmod>2019-09-07</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://darkless.cn/my-docs/XCTF-web-simple_php/</loc>
+         <lastmod>2021-07-05</lastmod>
+         <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://darkless.cn/my-docs/XCTF-web-upload/</loc>
-     <lastmod>2019-09-07</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://darkless.cn/my-docs/XCTF-web-simplejs/</loc>
+         <lastmod>2021-07-05</lastmod>
+         <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://darkless.cn/my-docs/XCTF-web-PHP2/</loc>
-     <lastmod>2019-09-07</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://darkless.cn/my-docs/XCTF-web-unserialize3/</loc>
+         <lastmod>2021-07-05</lastmod>
+         <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://darkless.cn/my-docs/XCTF-web-unserialize3/</loc>
-     <lastmod>2019-09-07</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://darkless.cn/my-docs/XCTF-web-upload/</loc>
+         <lastmod>2021-07-05</lastmod>
+         <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://darkless.cn/my-docs/XCTF-web-ics-05/</loc>
-     <lastmod>2019-09-07</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://darkless.cn/my-docs/XCTF-web-view_source/</loc>
+         <lastmod>2021-07-05</lastmod>
+         <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://darkless.cn/my-docs/XCTF-web-bug/</loc>
-     <lastmod>2019-09-07</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://darkless.cn/my-docs/XCTF-web-weak_auth/</loc>
+         <lastmod>2021-07-05</lastmod>
+         <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://darkless.cn/my-docs/XCTF-web-web2/</loc>
-     <lastmod>2019-09-07</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://darkless.cn/my-docs/XCTF-web-web2/</loc>
+         <lastmod>2021-07-05</lastmod>
+         <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://darkless.cn/my-docs/XCTF-web-wtf.sh-150/</loc>
-     <lastmod>2019-09-07</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://darkless.cn/my-docs/XCTF-web-webshell/</loc>
+         <lastmod>2021-07-05</lastmod>
+         <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://darkless.cn/my-docs/XCTF-web-i-got-id-200/</loc>
-     <lastmod>2019-09-07</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://darkless.cn/my-docs/XCTF-web-wtf.sh-150/</loc>
+         <lastmod>2021-07-05</lastmod>
+         <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://darkless.cn/my-docs/XCTF-web-ics-07/</loc>
-     <lastmod>2019-09-07</lastmod>
-     <changefreq>daily</changefreq>
+         <loc>https://darkless.cn/my-docs/XCTF-web-xff_refer/</loc>
+         <lastmod>2021-07-05</lastmod>
+         <changefreq>daily</changefreq>
     </url>
 </urlset>
